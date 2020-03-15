@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi_graph"
+    app:startDestination="@id/main_fragment">
+
+    <fragment
+        android:id="@+id/main_fragment"
+        android:name="com.pyteam.vividic.ui.MainFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_main_fragment_to_tv_show_details_fragement"
+            app:destination="@id/tv_show_details_fragement" />
+        <action
+            android:id="@+id/action_main_fragment_to_movie_details_fragement"
+            app:destination="@id/movie_details_fragement" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/movie_details_fragement"
+        android:name="com.pyteam.vividic.ui.MovieDetailsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_movie_details">
+
+        <argument
+            android:name="movieId"
+            app:argType="integer"
+            android:defaultValue="76341" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tv_show_details_fragement"
+        android:name="com.pyteam.vividic.ui.TvShowDetailsFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_tv_show_details">
+
+        <argument
+            android:name="tvId"
+            app:argType="integer"
+            android:defaultValue="60735" />
+    </fragment>
+
+
+</navigation>

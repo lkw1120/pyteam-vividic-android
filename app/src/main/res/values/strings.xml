@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">vividic</string>
+    <string name="app_name">Vividic</string>
+
+    <string name="tmdb_api_url">https://api.themoviedb.org/3/</string>
+    <string name="tmdb_image_url_original">https://image.tmdb.org/t/p/original</string>
+
+    <string name="credit_cast">Cast</string>
+    <string name="credit_crew">Crew</string>
+
+    <string name="movies_now_playing">Movies Now Playing</string>
+    <string name="tv_shows_on_the_air">TV Shows On The Air</string>
+    <string name="movies_popular">Movies Popular</string>
+    <string name="tv_shows_popular">TV Shows Popular</string>
+
 </resources>

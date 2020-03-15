@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="list_title_size">21sp</dimen>
+
+    <dimen name="movie_detail_poster_height">400dp</dimen>
+    <dimen name="tv_show_detail_poster_height">400dp</dimen>
+
+</resources>
