@@ -4,7 +4,20 @@
 
     <dimen name="list_title_size">21sp</dimen>
 
+    <dimen name="item_margin_width">10dp</dimen>
+    <dimen name="item_margin_height">0dp</dimen>
+
+    <dimen name="item_movie_width">140dp</dimen>
+    <dimen name="item_movie_height">200dp</dimen>
+    <dimen name="item_tv_show_width">140dp</dimen>
+    <dimen name="item_tv_show_height">200dp</dimen>
+
     <dimen name="movie_detail_poster_height">400dp</dimen>
     <dimen name="tv_show_detail_poster_height">400dp</dimen>
+
+    <dimen name="item_cast_width">140dp</dimen>
+    <dimen name="item_cast_height">200dp</dimen>
+    <dimen name="item_crew_width">140dp</dimen>
+    <dimen name="item_crew_height">200dp</dimen>
 
 </resources>

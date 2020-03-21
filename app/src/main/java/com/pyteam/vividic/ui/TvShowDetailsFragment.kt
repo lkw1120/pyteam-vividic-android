@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import com.pyteam.vividic.R
 
 import com.pyteam.vividic.databinding.FragmentTvShowDetailsBinding
 import com.pyteam.vividic.ui.adapter.CastListAdapter
 import com.pyteam.vividic.ui.adapter.CrewListAdapter
+import com.pyteam.vividic.ui.adapter.ListItemDecoration
 import com.pyteam.vividic.viewmodel.TvShowDetailsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -23,6 +25,7 @@ class TvShowDetailsFragment : Fragment() {
         val safeArgs: TvShowDetailsFragmentArgs by navArgs()
         parametersOf(safeArgs.tvId)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,8 +36,22 @@ class TvShowDetailsFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             val castAdapter = CastListAdapter()
             val crewAdapter = CrewListAdapter()
-            tvShowCreditCastList.adapter = castAdapter
-            tvShowCreditCrewList.adapter = crewAdapter
+            tvShowCast.list.apply {
+                addItemDecoration(
+                    ListItemDecoration(
+                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                )
+                adapter = castAdapter
+            }
+            tvShowCrew.list.apply {
+                addItemDecoration(
+                    ListItemDecoration(
+                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                )
+                adapter = crewAdapter
+            }
             subscribeUi(castAdapter)
             subscribeUi(crewAdapter)
         }

@@ -9,30 +9,28 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="150dp"
-        android:layout_height="match_parent">
+        android:layout_width="@dimen/item_cast_width"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/cast_profile"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/item_cast_height"
             android:adjustViewBounds="true"
             app:profilePath="@{item.profilePath}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toTopOf="@id/cast_name" />
 
         <TextView
+            android:id="@+id/cast_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{item.name}"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:background="@android:color/darker_gray"
-            android:textColor="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cast_profile"
             app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

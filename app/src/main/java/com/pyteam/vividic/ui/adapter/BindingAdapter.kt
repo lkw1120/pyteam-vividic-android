@@ -11,7 +11,7 @@ fun bindingPoster(view: ImageView, url: String?) {
         .load(view.context.getString(R.string.tmdb_image_url_original)+url)
         .placeholder(R.drawable.ic_image_24px)
         //.error(R.drawable.ic_broken_image_24px)
-        //.fitCenter()
+        .centerCrop()
         .into(view)
 }
 @BindingAdapter("app:profilePath")
@@ -20,6 +20,6 @@ fun bindingProfile(view: ImageView, url: String?) {
         .load(view.context.getString(R.string.tmdb_image_url_original)+url)
         .placeholder(R.drawable.ic_person_24px)
         //.error(R.drawable.ic_person_24px)
-        //.fitCenter()
+        .centerCrop()
         .into(view)
 }

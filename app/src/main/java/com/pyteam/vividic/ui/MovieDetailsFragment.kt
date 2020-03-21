@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import com.pyteam.vividic.R
 
 import com.pyteam.vividic.databinding.FragmentMovieDetailsBinding
 import com.pyteam.vividic.ui.adapter.CastListAdapter
 import com.pyteam.vividic.ui.adapter.CrewListAdapter
+import com.pyteam.vividic.ui.adapter.ListItemDecoration
 import com.pyteam.vividic.viewmodel.MovieDetailsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -34,8 +36,22 @@ class MovieDetailsFragment : Fragment() {
             lifecycleOwner = viewLifecycleOwner
             val castAdapter = CastListAdapter()
             val crewAdapter = CrewListAdapter()
-            movieCreditCastList.adapter = castAdapter
-            movieCreditCrewList.adapter = crewAdapter
+            movieCast.list.apply {
+                addItemDecoration(
+                    ListItemDecoration(
+                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                )
+                adapter = castAdapter
+            }
+            movieCrew.list.apply {
+                addItemDecoration(
+                    ListItemDecoration(
+                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                )
+                adapter = crewAdapter
+            }
             subscribeUi(castAdapter)
             subscribeUi(crewAdapter)
         }

@@ -9,8 +9,10 @@ import androidx.lifecycle.Observer
 import com.pyteam.vividic.viewmodel.MainViewModel
 import com.pyteam.vividic.R
 import com.pyteam.vividic.databinding.FragmentMainBinding
+import com.pyteam.vividic.ui.adapter.ListItemDecoration
 import com.pyteam.vividic.ui.adapter.MovieListAdapter
 import com.pyteam.vividic.ui.adapter.TvShowListAdapter
+import kotlinx.android.synthetic.main.list_recycler_view.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -33,15 +35,44 @@ class MainFragment : Fragment() {
             val moviesPopularAdapter = MovieListAdapter()
             val tvShowOnTheAirAdapter = TvShowListAdapter()
             val tvShowPopularAdapter = TvShowListAdapter()
-            moviesNowPlayingList.adapter = moviesNowPlayingAdapter
-            moviesPopularList.adapter = moviesPopularAdapter
-            tvShowsOnTheAirList.adapter = tvShowOnTheAirAdapter
-            tvShowsPopularList.adapter = tvShowPopularAdapter
+            moviesNowPlaying.list.apply {
+                addItemDecoration(
+                    ListItemDecoration(
+                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                )
+                adapter = moviesNowPlayingAdapter
+            }
+            moviesPopular.list.apply {
+                addItemDecoration(
+                    ListItemDecoration(
+                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                )
+                adapter = moviesPopularAdapter
+            }
+            tvShowsOnTheAir.list.apply {
+                addItemDecoration(
+                    ListItemDecoration(
+                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                )
+                adapter = tvShowOnTheAirAdapter
+            }
+            tvShowsPopular.list.apply {
+                addItemDecoration(
+                    ListItemDecoration(
+                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                )
+                adapter = tvShowPopularAdapter
+            }
             subscribeUi(
-                moviesNowPlayingAdapter,
-                moviesPopularAdapter,
-                tvShowOnTheAirAdapter,
-                tvShowPopularAdapter)
+                    moviesNowPlayingAdapter,
+                    moviesPopularAdapter,
+                    tvShowOnTheAirAdapter,
+                    tvShowPopularAdapter)
+
         }
         return binding.root
     }

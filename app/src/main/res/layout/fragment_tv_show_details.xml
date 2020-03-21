@@ -50,53 +50,28 @@
                     android:layout_height="wrap_content"
                     android:text="@{model.details.overview}"
                     app:layout_constraintTop_toBottomOf="@id/tv_show_title"
-                    app:layout_constraintBottom_toTopOf="@id/tv_show_credit_cast"
+                    app:layout_constraintBottom_toTopOf="@id/tv_show_cast"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent" />
 
-                <TextView
-                    android:id="@+id/tv_show_credit_cast"
+                <include
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/credit_cast"
-                    android:textSize="@dimen/list_title_size"
+                    android:id="@+id/tv_show_cast"
+                    layout="@layout/list_recycler_view"
+                    app:title="@{@string/credit_cast}"
                     app:layout_constraintTop_toBottomOf="@id/tv_show_overview"
-                    app:layout_constraintBottom_toTopOf="@id/tv_show_credit_cast_list"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toTopOf="@id/tv_show_crew"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/tv_show_credit_cast_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintTop_toBottomOf="@id/tv_show_credit_cast"
-                    app:layout_constraintBottom_toTopOf="@id/tv_show_credit_crew_list"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
-
-                <TextView
-                    android:id="@+id/tv_show_credit_crew"
+                <include
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/credit_crew"
-                    android:textSize="@dimen/list_title_size"
-                    app:layout_constraintTop_toBottomOf="@id/tv_show_credit_cast_list"
-                    app:layout_constraintBottom_toTopOf="@id/tv_show_credit_crew_list"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:id="@+id/tv_show_crew"
+                    layout="@layout/list_recycler_view"
+                    app:title="@{@string/credit_crew}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_show_cast"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/tv_show_credit_crew_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:orientation="horizontal"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintTop_toBottomOf="@id/tv_show_credit_crew"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </FrameLayout>
