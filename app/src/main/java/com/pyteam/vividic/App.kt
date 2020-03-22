@@ -16,7 +16,8 @@ import org.koin.dsl.module
 class App: Application() {
 
     private val networkModule = module {
-        single { ApiConnection(applicationContext) }
+        single { ApiConnection(applicationContext).getMovies() }
+        single { ApiConnection(applicationContext).getTvShows() }
     }
     private val repositoryModule = module {
         single { MovieRepository(applicationContext,get()) }
