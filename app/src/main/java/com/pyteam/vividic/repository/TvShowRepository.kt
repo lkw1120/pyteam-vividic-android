@@ -10,10 +10,8 @@ import com.pyteam.vividic.datasource.entity.tvshows.credits.Credit
 import com.pyteam.vividic.datasource.entity.tvshows.details.Detail
 import com.pyteam.vividic.datasource.entity.tvshows.ontheair.OnTheAir
 import com.pyteam.vividic.datasource.entity.tvshows.popular.Popular
-
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class TvShowRepository(
     context: Context,
@@ -24,65 +22,41 @@ class TvShowRepository(
 
     fun getDetails(tvId: Int): LiveData<Detail> {
         val movie = MutableLiveData<Detail>()
-        apiConnection.getTvShows().getDetails(tvId, API_KEY, "ko-KR")
-            .enqueue(object: Callback<Detail> {
-                override fun onResponse(call: Call<Detail>, response: Response<Detail>) {
-                    if(response.isSuccessful) {
-                        movie.postValue(response.body())
-                    }
-                }
-                override fun onFailure(call: Call<Detail>, t: Throwable) {
-
-                }
-            })
+        val disposable = apiConnection.getTvShows()
+            .getDetails(tvId, API_KEY, "ko-KR")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(movie::postValue)
         return movie
     }
 
     fun getCredits(tvId: Int): LiveData<Credit> {
         val credit = MutableLiveData<Credit>()
-        apiConnection.getTvShows().getCredits(tvId, API_KEY, "ko-KR")
-            .enqueue(object: Callback<Credit> {
-                override fun onResponse(call: Call<Credit>, response: Response<Credit>) {
-                    if(response.isSuccessful) {
-                        credit.postValue(response.body())
-                    }
-                }
-                override fun onFailure(call: Call<Credit>, t: Throwable) {
-
-                }
-            })
+        val disposable = apiConnection.getTvShows()
+            .getCredits(tvId, API_KEY, "ko-KR")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(credit::postValue)
         return credit
     }
 
     fun getOnTheAir(): LiveData<OnTheAir> {
         val onTheAir = MutableLiveData<OnTheAir>()
-        apiConnection.getTvShows().getOnTheAir(API_KEY,"ko-KR")
-            .enqueue(object: Callback<OnTheAir> {
-                override fun onResponse(call: Call<OnTheAir>, response: Response<OnTheAir>) {
-                    if(response.isSuccessful) {
-                        onTheAir.postValue(response.body())
-                    }
-                }
-                override fun onFailure(call: Call<OnTheAir>, t: Throwable) {
-
-                }
-            })
+        val disposable = apiConnection.getTvShows()
+            .getOnTheAir(API_KEY,"ko-KR")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(onTheAir::postValue)
         return onTheAir
     }
 
     fun getPopular(): LiveData<Popular> {
         val popular = MutableLiveData<Popular>()
-        apiConnection.getTvShows().getPopular(API_KEY, "ko-KR")
-            .enqueue(object: Callback<Popular> {
-                override fun onResponse(call: Call<Popular>, response: Response<Popular>) {
-                    if(response.isSuccessful) {
-                        popular.postValue(response.body())
-                    }
-                }
-                override fun onFailure(call: Call<Popular>, t: Throwable) {
-
-                }
-            })
+        val disposable = apiConnection.getTvShows()
+            .getPopular(API_KEY, "ko-KR")
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(popular::postValue)
         return popular
     }
 }
