@@ -7,9 +7,9 @@ data class Cast (
 
 	@SerializedName("character") override val character : String,
 	@SerializedName("credit_id") override val creditId : String,
-	@SerializedName("id") override val id : Int,
+	@SerializedName("id") override val id : String,
 	@SerializedName("name") override val name : String,
-	@SerializedName("gender") override val gender : Int,
+	@SerializedName("gender") override val gender : String,
 	@SerializedName("profile_path") override val profilePath : String,
-	@SerializedName("order") override val order : Int
+	@SerializedName("order") override val order : String
 ): Cast

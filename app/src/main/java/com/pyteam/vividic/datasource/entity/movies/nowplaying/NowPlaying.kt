@@ -8,8 +8,8 @@ import com.pyteam.vividic.datasource.entity.movies.Results
 data class NowPlaying (
 
 	@SerializedName("results") val results : List<Results>,
-	@SerializedName("page") val page : Int,
-	@SerializedName("total_results") val totalResults : Int,
+	@SerializedName("page") val page : String,
+	@SerializedName("total_results") val totalResults : String,
 	@SerializedName("dates") val dates : Dates,
-	@SerializedName("total_pages") val totalPages : Int
+	@SerializedName("total_pages") val totalPages : String
 )

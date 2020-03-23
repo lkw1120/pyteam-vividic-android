@@ -5,7 +5,7 @@ import com.pyteam.vividic.repository.MovieRepository
 
 class MovieDetailsViewModel(
     movieRepository: MovieRepository,
-    movieId:Int
+    movieId: String
 ) : ViewModel() {
 
     val details = movieRepository.getDetails(movieId)

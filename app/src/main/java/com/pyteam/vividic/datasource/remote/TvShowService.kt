@@ -13,13 +13,13 @@ interface TvShowService {
 
     @GET("tv/{tv_id}?")
     fun getDetails(
-        @Path("tv_id") tvId: Int,
+        @Path("tv_id") tvId: String,
         @Query("api_key") apiKey: String,
         @Query("language") language: String) : Single<Detail>
 
     @GET("tv/{tv_id}/credits?")
     fun getCredits(
-        @Path("tv_id") tvId: Int,
+        @Path("tv_id") tvId: String,
         @Query("api_key") apiKey: String,
         @Query("language") language: String) : Single<Credit>
 

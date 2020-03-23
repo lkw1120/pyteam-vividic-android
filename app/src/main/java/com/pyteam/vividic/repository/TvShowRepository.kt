@@ -20,7 +20,7 @@ class TvShowRepository(
 
     private val API_KEY: String = context.getString(R.string.tmdb_api_key)
 
-    fun getDetails(tvId: Int): LiveData<Detail> {
+    fun getDetails(tvId: String): LiveData<Detail> {
         val movie = MutableLiveData<Detail>()
         val disposable =
             tvShowService.getDetails(tvId, API_KEY, "ko-KR")
@@ -30,7 +30,7 @@ class TvShowRepository(
         return movie
     }
 
-    fun getCredits(tvId: Int): LiveData<Credit> {
+    fun getCredits(tvId: String): LiveData<Credit> {
         val credit = MutableLiveData<Credit>()
         val disposable =
             tvShowService.getCredits(tvId, API_KEY, "ko-KR")

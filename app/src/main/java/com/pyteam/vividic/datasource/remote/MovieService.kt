@@ -13,13 +13,13 @@ interface MovieService {
 
     @GET("movie/{movie_id}?")
     fun getDetails(
-        @Path("movie_id") movieId: Int,
+        @Path("movie_id") movieId: String,
         @Query("api_key") apiKey: String,
         @Query("language") language: String) : Single<Detail>
 
     @GET("movie/{movie_id}/credits?")
     fun getCredits(
-        @Path("movie_id") movieId: Int,
+        @Path("movie_id") movieId: String,
         @Query("api_key") apiKey: String,
         @Query("language") language: String) : Single<Credit>
 

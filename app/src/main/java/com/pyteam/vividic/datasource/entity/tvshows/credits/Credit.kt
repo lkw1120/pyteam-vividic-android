@@ -6,5 +6,5 @@ data class Credit (
 
 	@SerializedName("cast") val cast : List<Cast>,
 	@SerializedName("crew") val crew : List<Crew>,
-	@SerializedName("id") val id : Int
+	@SerializedName("id") val id : String
 )

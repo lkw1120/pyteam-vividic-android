@@ -5,7 +5,7 @@ import com.pyteam.vividic.repository.TvShowRepository
 
 class TvShowDetailsViewModel(
     tvShowRepository: TvShowRepository,
-    tvId:Int
+    tvId: String
 ) : ViewModel() {
 
     val details = tvShowRepository.getDetails(tvId)

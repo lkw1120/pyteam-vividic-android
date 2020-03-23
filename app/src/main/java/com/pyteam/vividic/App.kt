@@ -27,10 +27,10 @@ class App: Application() {
         viewModel {
             MainViewModel(get(),get())
         }
-        viewModel { (movieId: Int) ->
+        viewModel { (movieId: String) ->
             MovieDetailsViewModel(get(),movieId)
         }
-        viewModel { (tvId: Int) ->
+        viewModel { (tvId: String) ->
             TvShowDetailsViewModel(get(),tvId)
         }
     }
