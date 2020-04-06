@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.pyteam.vividic.viewmodel.MainViewModel
 import com.pyteam.vividic.R
 import com.pyteam.vividic.databinding.FragmentMainBinding
 import com.pyteam.vividic.ui.adapter.ListItemDecoration
 import com.pyteam.vividic.ui.adapter.MovieListAdapter
 import com.pyteam.vividic.ui.adapter.TvShowListAdapter
-import kotlinx.android.synthetic.main.list_recycler_view.view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -31,10 +31,34 @@ class MainFragment : Fragment() {
             model = viewModel
             lifecycleOwner = viewLifecycleOwner
 
-            val moviesNowPlayingAdapter = MovieListAdapter()
-            val moviesPopularAdapter = MovieListAdapter()
-            val tvShowOnTheAirAdapter = TvShowListAdapter()
-            val tvShowPopularAdapter = TvShowListAdapter()
+            val moviesNowPlayingAdapter = MovieListAdapter(object: MovieListAdapter.OnItemClickListener {
+                override fun onItemClick(view: View, id: String) {
+                    findNavController().navigate(
+                        MainFragmentDirections.actionMainFragmentToMovieDetailsFragement(id))
+                }
+            })
+
+            val moviesPopularAdapter = MovieListAdapter(object: MovieListAdapter.OnItemClickListener {
+                override fun onItemClick(view: View, id: String) {
+                    findNavController().navigate(
+                        MainFragmentDirections.actionMainFragmentToMovieDetailsFragement(id))
+                }
+            })
+
+            val tvShowOnTheAirAdapter = TvShowListAdapter(object: TvShowListAdapter.OnItemClickListener {
+                override fun onItemClick(view: View, id: String) {
+                    findNavController().navigate(
+                        MainFragmentDirections.actionMainFragmentToTvShowDetailsFragement(id))
+                }
+            })
+
+            val tvShowPopularAdapter = TvShowListAdapter(object: TvShowListAdapter.OnItemClickListener {
+                override fun onItemClick(view: View, id: String) {
+                    findNavController().navigate(
+                        MainFragmentDirections.actionMainFragmentToTvShowDetailsFragement(id))
+                }
+            })
+
             moviesNowPlaying.list.apply {
                 addItemDecoration(
                     ListItemDecoration(

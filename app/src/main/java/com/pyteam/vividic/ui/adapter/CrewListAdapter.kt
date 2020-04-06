@@ -24,7 +24,7 @@ class CrewListAdapter(
     inner class ItemViewHolder(private val binding: ItemCrewBinding): RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
-                onItemClickListener.onItemClick(it,binding.item!!)
+                onItemClickListener.onItemClick(it,binding.item!!.id)
             }
         }
         fun bind(item: Crew) {
@@ -36,7 +36,7 @@ class CrewListAdapter(
     }
 
     interface OnItemClickListener {
-        fun onItemClick(view: View, item: Crew)
+        fun onItemClick(view: View, id: String)
     }
 
     class DiffCallback: DiffUtil.ItemCallback<Crew>() {

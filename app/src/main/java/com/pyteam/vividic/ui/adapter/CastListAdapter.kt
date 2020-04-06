@@ -24,7 +24,7 @@ class CastListAdapter(
     inner class ItemViewHolder(private val binding: ItemCastBinding): RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
-                onItemClickListener.onItemClick(it,binding.item!!)
+                onItemClickListener.onItemClick(it,binding.item!!.id)
             }
         }
         fun bind(item: Cast) {
@@ -36,7 +36,7 @@ class CastListAdapter(
     }
 
     interface OnItemClickListener {
-        fun onItemClick(view: View, item: Cast)
+        fun onItemClick(view: View, id: String)
     }
 
     class DiffCallback: DiffUtil.ItemCallback<Cast>() {

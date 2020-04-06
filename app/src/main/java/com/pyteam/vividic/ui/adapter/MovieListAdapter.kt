@@ -1,6 +1,7 @@
 package com.pyteam.vividic.ui.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -11,7 +12,9 @@ import com.pyteam.vividic.databinding.ItemMovieBinding
 import com.pyteam.vividic.datasource.entity.movies.Results
 import com.pyteam.vividic.ui.MainFragmentDirections
 
-class MovieListAdapter: ListAdapter<Results, RecyclerView.ViewHolder>(DiffCallback()) {
+class MovieListAdapter(
+    val onItemClickListener: OnItemClickListener
+): ListAdapter<Results, RecyclerView.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         ItemViewHolder(ItemMovieBinding.inflate(LayoutInflater.from(parent.context),parent,false))
@@ -25,8 +28,7 @@ class MovieListAdapter: ListAdapter<Results, RecyclerView.ViewHolder>(DiffCallba
         RecyclerView.ViewHolder(binding.root) {
         init {
             binding.root.setOnClickListener {
-                it.findNavController().navigate(
-                    MainFragmentDirections.actionMainFragmentToMovieDetailsFragement(binding.item!!.id))
+                onItemClickListener.onItemClick(it,binding.item!!.id)
             }
         }
         fun bind(item: Results) {
@@ -35,6 +37,10 @@ class MovieListAdapter: ListAdapter<Results, RecyclerView.ViewHolder>(DiffCallba
                 executePendingBindings()
             }
         }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(view: View, id: String)
     }
 
     class DiffCallback: DiffUtil.ItemCallback<Results>() {

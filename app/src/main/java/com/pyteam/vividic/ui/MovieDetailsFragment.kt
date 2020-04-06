@@ -11,8 +11,6 @@ import androidx.navigation.fragment.navArgs
 import com.pyteam.vividic.R
 
 import com.pyteam.vividic.databinding.FragmentMovieDetailsBinding
-import com.pyteam.vividic.datasource.entity.common.Cast
-import com.pyteam.vividic.datasource.entity.common.Crew
 import com.pyteam.vividic.ui.adapter.CastListAdapter
 import com.pyteam.vividic.ui.adapter.CrewListAdapter
 import com.pyteam.vividic.ui.adapter.ListItemDecoration
@@ -38,15 +36,15 @@ class MovieDetailsFragment : Fragment() {
             model = viewModel
             lifecycleOwner = viewLifecycleOwner
             val castAdapter = CastListAdapter(object: CastListAdapter.OnItemClickListener {
-                override fun onItemClick(view: View, item: Cast) {
+                override fun onItemClick(view: View, id: String) {
                     findNavController().navigate(
-                        MovieDetailsFragmentDirections.actionMovieDetailsFragementToPersonDetailsFragment(item.id))
+                        MovieDetailsFragmentDirections.actionMovieDetailsFragementToPersonDetailsFragment(id))
                 }
             })
             val crewAdapter = CrewListAdapter(object: CrewListAdapter.OnItemClickListener {
-                override fun onItemClick(view: View, item: Crew) {
+                override fun onItemClick(view: View, id: String) {
                     findNavController().navigate(
-                        MovieDetailsFragmentDirections.actionMovieDetailsFragementToPersonDetailsFragment(item.id))
+                        MovieDetailsFragmentDirections.actionMovieDetailsFragementToPersonDetailsFragment(id))
                 }
             })
             movieCast.list.apply {
