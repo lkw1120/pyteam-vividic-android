@@ -19,4 +19,7 @@ class ApiConnection(context: Context) {
 
     fun getTvShows(): TvShowService =
         retrofit.create(TvShowService::class.java)
+
+    fun getPerson(): PersonService =
+        retrofit.create(PersonService::class.java)
 }

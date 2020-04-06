@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.pyteam.vividic.R
 
 import com.pyteam.vividic.databinding.FragmentMovieDetailsBinding
+import com.pyteam.vividic.datasource.entity.common.Cast
+import com.pyteam.vividic.datasource.entity.common.Crew
 import com.pyteam.vividic.ui.adapter.CastListAdapter
 import com.pyteam.vividic.ui.adapter.CrewListAdapter
 import com.pyteam.vividic.ui.adapter.ListItemDecoration
@@ -34,8 +37,18 @@ class MovieDetailsFragment : Fragment() {
         binding.apply {
             model = viewModel
             lifecycleOwner = viewLifecycleOwner
-            val castAdapter = CastListAdapter()
-            val crewAdapter = CrewListAdapter()
+            val castAdapter = CastListAdapter(object: CastListAdapter.OnItemClickListener {
+                override fun onItemClick(view: View, item: Cast) {
+                    findNavController().navigate(
+                        MovieDetailsFragmentDirections.actionMovieDetailsFragementToPersonDetailsFragment(item.id))
+                }
+            })
+            val crewAdapter = CrewListAdapter(object: CrewListAdapter.OnItemClickListener {
+                override fun onItemClick(view: View, item: Crew) {
+                    findNavController().navigate(
+                        MovieDetailsFragmentDirections.actionMovieDetailsFragementToPersonDetailsFragment(item.id))
+                }
+            })
             movieCast.list.apply {
                 addItemDecoration(
                     ListItemDecoration(
