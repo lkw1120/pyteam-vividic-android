@@ -72,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/movie_cast"
-                    layout="@layout/list_recycler_view"
+                    layout="@layout/list_content"
                     app:title="@{@string/credit_cast}"
                     app:layout_constraintTop_toBottomOf="@id/movie_overview"
                     app:layout_constraintBottom_toTopOf="@id/movie_crew"/>
@@ -81,7 +81,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/movie_crew"
-                    layout="@layout/list_recycler_view"
+                    layout="@layout/list_content"
                     app:title="@{@string/credit_crew}"
                     app:layout_constraintTop_toBottomOf="@id/movie_cast"
                     app:layout_constraintBottom_toBottomOf="parent"/>

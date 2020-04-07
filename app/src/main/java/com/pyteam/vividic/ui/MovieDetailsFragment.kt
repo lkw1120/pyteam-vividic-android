@@ -47,21 +47,33 @@ class MovieDetailsFragment : Fragment() {
                         MovieDetailsFragmentDirections.actionMovieDetailsFragementToPersonDetailsFragment(id))
                 }
             })
-            movieCast.list.apply {
-                addItemDecoration(
-                    ListItemDecoration(
-                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
-                )
-                adapter = castAdapter
+            movieCast.apply {
+                listHeader.apply {
+                    listMore.visibility = View.GONE
+                }
+                listBody.apply {
+                    addItemDecoration(
+                        ListItemDecoration(
+                            resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                        )
+                    )
+                    adapter = castAdapter
+                }
             }
-            movieCrew.list.apply {
-                addItemDecoration(
-                    ListItemDecoration(
-                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
-                )
-                adapter = crewAdapter
+            movieCrew.apply {
+                listHeader.apply {
+                    listMore.visibility = View.GONE
+                }
+                listBody.apply {
+                    addItemDecoration(
+                        ListItemDecoration(
+                            resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                        )
+                    )
+                    adapter = crewAdapter
+                }
             }
             subscribeUi(castAdapter)
             subscribeUi(crewAdapter)

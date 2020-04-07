@@ -11,8 +11,6 @@ import androidx.navigation.fragment.navArgs
 import com.pyteam.vividic.R
 
 import com.pyteam.vividic.databinding.FragmentTvShowDetailsBinding
-import com.pyteam.vividic.datasource.entity.common.Cast
-import com.pyteam.vividic.datasource.entity.common.Crew
 import com.pyteam.vividic.ui.adapter.CastListAdapter
 import com.pyteam.vividic.ui.adapter.CrewListAdapter
 import com.pyteam.vividic.ui.adapter.ListItemDecoration
@@ -49,21 +47,32 @@ class TvShowDetailsFragment : Fragment() {
                         TvShowDetailsFragmentDirections.actionTvShowDetailsFragementToPersonDetailsFragment(id))
                 }
             })
-            tvShowCast.list.apply {
-                addItemDecoration(
-                    ListItemDecoration(
-                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
-                )
-                adapter = castAdapter
+            tvShowCast.apply {
+                listHeader.apply {
+                    listMore.visibility = View.GONE
+                }
+                listBody.apply {
+                    addItemDecoration(
+                        ListItemDecoration(
+                            resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                        )
+                    )
+                    adapter = castAdapter
+                }
             }
-            tvShowCrew.list.apply {
-                addItemDecoration(
-                    ListItemDecoration(
-                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
-                )
-                adapter = crewAdapter
+            tvShowCrew.apply {
+                listHeader.apply {
+                    listMore.visibility = View.GONE
+                }
+                listBody.apply {
+                    addItemDecoration(
+                        ListItemDecoration(
+                            resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                    )
+                    adapter = crewAdapter
+                }
             }
             subscribeUi(castAdapter)
             subscribeUi(crewAdapter)

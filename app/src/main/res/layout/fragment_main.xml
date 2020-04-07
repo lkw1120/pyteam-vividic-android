@@ -39,7 +39,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/movies_now_playing"
-                    layout="@layout/list_recycler_view"
+                    layout="@layout/list_content"
                     app:title="@{@string/movies_now_playing}"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toTopOf="@id/tv_shows_on_the_air"/>
@@ -48,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_shows_on_the_air"
-                    layout="@layout/list_recycler_view"
+                    layout="@layout/list_content"
                     app:title="@{@string/tv_shows_on_the_air}"
                     app:layout_constraintTop_toBottomOf="@id/movies_now_playing"
                     app:layout_constraintBottom_toTopOf="@id/movies_popular" />
@@ -57,7 +57,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/movies_popular"
-                    layout="@layout/list_recycler_view"
+                    layout="@layout/list_content"
                     app:title="@{@string/movies_popular}"
                     app:layout_constraintTop_toBottomOf="@id/tv_shows_on_the_air"
                     app:layout_constraintBottom_toTopOf="@id/tv_shows_popular" />
@@ -66,7 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/tv_shows_popular"
-                    layout="@layout/list_recycler_view"
+                    layout="@layout/list_content"
                     app:title="@{@string/tv_shows_popular}"
                     app:layout_constraintTop_toBottomOf="@id/movies_popular"
                     app:layout_constraintBottom_toBottomOf="parent" />

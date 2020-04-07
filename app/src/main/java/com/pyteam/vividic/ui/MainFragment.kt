@@ -59,7 +59,7 @@ class MainFragment : Fragment() {
                 }
             })
 
-            moviesNowPlaying.list.apply {
+            moviesNowPlaying.listBody.apply {
                 addItemDecoration(
                     ListItemDecoration(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
@@ -67,7 +67,7 @@ class MainFragment : Fragment() {
                 )
                 adapter = moviesNowPlayingAdapter
             }
-            moviesPopular.list.apply {
+            moviesPopular.listBody.apply {
                 addItemDecoration(
                     ListItemDecoration(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
@@ -75,7 +75,7 @@ class MainFragment : Fragment() {
                 )
                 adapter = moviesPopularAdapter
             }
-            tvShowsOnTheAir.list.apply {
+            tvShowsOnTheAir.listBody.apply {
                 addItemDecoration(
                     ListItemDecoration(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
@@ -83,7 +83,7 @@ class MainFragment : Fragment() {
                 )
                 adapter = tvShowOnTheAirAdapter
             }
-            tvShowsPopular.list.apply {
+            tvShowsPopular.listBody.apply {
                 addItemDecoration(
                     ListItemDecoration(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
