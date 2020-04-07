@@ -20,7 +20,7 @@ class App: Application() {
     private val networkModule = module {
         single { ApiConnection(applicationContext).getMovies() }
         single { ApiConnection(applicationContext).getTvShows() }
-        single { ApiConnection(applicationContext).getPerson() }
+        single { ApiConnection(applicationContext).getPeople() }
     }
     private val repositoryModule = module {
         single { MovieRepository(applicationContext,get()) }
