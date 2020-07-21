@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
             name="model"
-            type="com.pyteam.vividic.viewmodel.MainViewModel" />
+            type="com.pyteam.vividic.viewmodel.ResultViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MainFragment">
+        tools:context=".ui.ResultFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize">
 
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:titleTextColor="@android:color/white"/>
+                app:titleTextColor="@android:color/white"
+                app:title="@{model.title}" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -38,37 +40,19 @@
                 <include
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/movies_now_playing"
+                    android:id="@+id/movie_result"
                     layout="@layout/list_content"
-                    app:title="@{@string/movies_now_playing}"
+                    app:title="@{@string/movie_results}"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/tv_shows_on_the_air"/>
+                    app:layout_constraintBottom_toTopOf="@id/tv_show_result"/>
 
                 <include
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/tv_shows_on_the_air"
+                    android:id="@+id/tv_show_result"
                     layout="@layout/list_content"
-                    app:title="@{@string/tv_shows_on_the_air}"
-                    app:layout_constraintTop_toBottomOf="@id/movies_now_playing"
-                    app:layout_constraintBottom_toTopOf="@id/movies_popular" />
-
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/movies_popular"
-                    layout="@layout/list_content"
-                    app:title="@{@string/movies_popular}"
-                    app:layout_constraintTop_toBottomOf="@id/tv_shows_on_the_air"
-                    app:layout_constraintBottom_toTopOf="@id/tv_shows_popular" />
-
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_shows_popular"
-                    layout="@layout/list_content"
-                    app:title="@{@string/tv_shows_popular}"
-                    app:layout_constraintTop_toBottomOf="@id/movies_popular"
+                    app:title="@{@string/tv_show_results}"
+                    app:layout_constraintTop_toBottomOf="@id/movie_result"
                     app:layout_constraintBottom_toBottomOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

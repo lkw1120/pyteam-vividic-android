@@ -1,15 +1,20 @@
 package com.pyteam.vividic.datasource.remote
 
+import com.pyteam.vividic.datasource.entity.tvshows.TvShowResult
 import com.pyteam.vividic.datasource.entity.tvshows.credits.Credit
 import com.pyteam.vividic.datasource.entity.tvshows.details.Detail
-import com.pyteam.vividic.datasource.entity.tvshows.ontheair.OnTheAir
-import com.pyteam.vividic.datasource.entity.tvshows.popular.Popular
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface TvShowService {
+
+    @GET("search/tv?")
+    fun searchTvShow(
+        @Query("api_key") apiKey: String,
+        @Query("query") query: String,
+        @Query("language") language: String) : Single<TvShowResult>
 
     @GET("tv/{tv_id}?")
     fun getDetails(
@@ -26,10 +31,10 @@ interface TvShowService {
     @GET("tv/on_the_air?")
     fun getOnTheAir(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String) : Single<OnTheAir>
+        @Query("language") language: String) : Single<TvShowResult>
 
     @GET("tv/popular?")
     fun getPopular(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String) : Single<Popular>
+        @Query("language") language: String) : Single<TvShowResult>
 }

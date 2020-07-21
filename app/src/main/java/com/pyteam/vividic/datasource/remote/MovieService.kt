@@ -1,15 +1,20 @@
 package com.pyteam.vividic.datasource.remote
 
+import com.pyteam.vividic.datasource.entity.movies.MovieResult
 import com.pyteam.vividic.datasource.entity.movies.credits.Credit
 import com.pyteam.vividic.datasource.entity.movies.details.Detail
-import com.pyteam.vividic.datasource.entity.movies.nowplaying.NowPlaying
-import com.pyteam.vividic.datasource.entity.movies.popular.Popular
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MovieService {
+
+    @GET("search/movie?")
+    fun searchMovie(
+        @Query("api_key") apiKey: String,
+        @Query("query") query: String,
+        @Query("language") language: String) : Single<MovieResult>
 
     @GET("movie/{movie_id}?")
     fun getDetails(
@@ -26,10 +31,10 @@ interface MovieService {
     @GET("movie/now_playing?")
     fun getNowPlaying(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String) : Single<NowPlaying>
+        @Query("language") language: String) : Single<MovieResult>
 
     @GET("movie/popular?")
     fun getPopular(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String) : Single<Popular>
+        @Query("language") language: String) : Single<MovieResult>
 }

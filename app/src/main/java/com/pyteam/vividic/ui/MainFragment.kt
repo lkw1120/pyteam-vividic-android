@@ -1,10 +1,9 @@
 package com.pyteam.vividic.ui
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.pyteam.vividic.viewmodel.MainViewModel
@@ -14,7 +13,6 @@ import com.pyteam.vividic.ui.adapter.ListItemDecoration
 import com.pyteam.vividic.ui.adapter.MovieListAdapter
 import com.pyteam.vividic.ui.adapter.TvShowListAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
 
 class MainFragment : Fragment() {
 
@@ -31,39 +29,51 @@ class MainFragment : Fragment() {
             model = viewModel
             lifecycleOwner = viewLifecycleOwner
 
-            val moviesNowPlayingAdapter = MovieListAdapter(object: MovieListAdapter.OnItemClickListener {
-                override fun onItemClick(view: View, id: String) {
-                    findNavController().navigate(
-                        MainFragmentDirections.actionMainFragmentToMovieDetailsFragement(id))
-                }
-            })
+            (activity as AppCompatActivity).setSupportActionBar(toolbar)
+            setHasOptionsMenu(true)
 
-            val moviesPopularAdapter = MovieListAdapter(object: MovieListAdapter.OnItemClickListener {
-                override fun onItemClick(view: View, id: String) {
-                    findNavController().navigate(
-                        MainFragmentDirections.actionMainFragmentToMovieDetailsFragement(id))
-                }
-            })
+            val moviesNowPlayingAdapter =
+                MovieListAdapter(object : MovieListAdapter.OnItemClickListener {
+                    override fun onItemClick(view: View, id: String) {
+                        findNavController().navigate(
+                            MainFragmentDirections.actionMainFragmentToMovieDetailsFragement(id)
+                        )
+                    }
+                })
 
-            val tvShowOnTheAirAdapter = TvShowListAdapter(object: TvShowListAdapter.OnItemClickListener {
-                override fun onItemClick(view: View, id: String) {
-                    findNavController().navigate(
-                        MainFragmentDirections.actionMainFragmentToTvShowDetailsFragement(id))
-                }
-            })
+            val moviesPopularAdapter =
+                MovieListAdapter(object : MovieListAdapter.OnItemClickListener {
+                    override fun onItemClick(view: View, id: String) {
+                        findNavController().navigate(
+                            MainFragmentDirections.actionMainFragmentToMovieDetailsFragement(id)
+                        )
+                    }
+                })
 
-            val tvShowPopularAdapter = TvShowListAdapter(object: TvShowListAdapter.OnItemClickListener {
-                override fun onItemClick(view: View, id: String) {
-                    findNavController().navigate(
-                        MainFragmentDirections.actionMainFragmentToTvShowDetailsFragement(id))
-                }
-            })
+            val tvShowOnTheAirAdapter =
+                TvShowListAdapter(object : TvShowListAdapter.OnItemClickListener {
+                    override fun onItemClick(view: View, id: String) {
+                        findNavController().navigate(
+                            MainFragmentDirections.actionMainFragmentToTvShowDetailsFragement(id)
+                        )
+                    }
+                })
+
+            val tvShowPopularAdapter =
+                TvShowListAdapter(object : TvShowListAdapter.OnItemClickListener {
+                    override fun onItemClick(view: View, id: String) {
+                        findNavController().navigate(
+                            MainFragmentDirections.actionMainFragmentToTvShowDetailsFragement(id)
+                        )
+                    }
+                })
 
             moviesNowPlaying.listBody.apply {
                 addItemDecoration(
                     ListItemDecoration(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                    )
                 )
                 adapter = moviesNowPlayingAdapter
             }
@@ -71,7 +81,8 @@ class MainFragment : Fragment() {
                 addItemDecoration(
                     ListItemDecoration(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                    )
                 )
                 adapter = moviesPopularAdapter
             }
@@ -79,7 +90,8 @@ class MainFragment : Fragment() {
                 addItemDecoration(
                     ListItemDecoration(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                    )
                 )
                 adapter = tvShowOnTheAirAdapter
             }
@@ -87,15 +99,17 @@ class MainFragment : Fragment() {
                 addItemDecoration(
                     ListItemDecoration(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height))
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                    )
                 )
                 adapter = tvShowPopularAdapter
             }
             subscribeUi(
-                    moviesNowPlayingAdapter,
-                    moviesPopularAdapter,
-                    tvShowOnTheAirAdapter,
-                    tvShowPopularAdapter)
+                moviesNowPlayingAdapter,
+                moviesPopularAdapter,
+                tvShowOnTheAirAdapter,
+                tvShowPopularAdapter
+            )
 
         }
         return binding.root
@@ -120,6 +134,23 @@ class MainFragment : Fragment() {
             tvShowsPopular.observe(viewLifecycleOwner, Observer {
                 tvShowPopularAdapter.submitList(it.results)
             })
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when(item.itemId) {
+        R.id.action_search -> {
+            findNavController().navigate(
+                MainFragmentDirections.actionMainFragmentToSearchFragment()
+            )
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
         }
     }
 

@@ -5,10 +5,7 @@ import com.pyteam.vividic.datasource.remote.ApiConnection
 import com.pyteam.vividic.repository.MovieRepository
 import com.pyteam.vividic.repository.PersonRepository
 import com.pyteam.vividic.repository.TvShowRepository
-import com.pyteam.vividic.viewmodel.MainViewModel
-import com.pyteam.vividic.viewmodel.MovieDetailsViewModel
-import com.pyteam.vividic.viewmodel.PersonDetailsViewModel
-import com.pyteam.vividic.viewmodel.TvShowDetailsViewModel
+import com.pyteam.vividic.viewmodel.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -39,6 +36,9 @@ class App: Application() {
         }
         viewModel { (personId: String) ->
             PersonDetailsViewModel(get(),personId)
+        }
+        viewModel { (query: String) ->
+            ResultViewModel(get(),get(),get(),query)
         }
     }
 

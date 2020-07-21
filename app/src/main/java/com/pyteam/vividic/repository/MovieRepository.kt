@@ -5,10 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 import com.pyteam.vividic.R
+import com.pyteam.vividic.datasource.entity.movies.MovieResult
 import com.pyteam.vividic.datasource.entity.movies.credits.Credit
 import com.pyteam.vividic.datasource.entity.movies.details.Detail
-import com.pyteam.vividic.datasource.entity.movies.nowplaying.NowPlaying
-import com.pyteam.vividic.datasource.entity.movies.popular.Popular
 import com.pyteam.vividic.datasource.remote.MovieService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -40,8 +39,8 @@ class MovieRepository(
         return credit
     }
 
-    fun getNowPlaying(): LiveData<NowPlaying> {
-        val nowPlaying = MutableLiveData<NowPlaying>()
+    fun getNowPlaying(): LiveData<MovieResult> {
+        val nowPlaying = MutableLiveData<MovieResult>()
         val disposable =
             movieService.getNowPlaying(API_KEY, "ko-KR")
                 .subscribeOn(Schedulers.io())
@@ -50,8 +49,8 @@ class MovieRepository(
         return nowPlaying
     }
 
-    fun getPopular(): LiveData<Popular> {
-        val popular = MutableLiveData<Popular>()
+    fun getPopular(): LiveData<MovieResult> {
+        val popular = MutableLiveData<MovieResult>()
         val disposable =
             movieService.getPopular(API_KEY, "ko-KR")
                 .subscribeOn(Schedulers.io())
@@ -59,4 +58,15 @@ class MovieRepository(
                 .subscribe(popular::postValue)
         return popular
     }
+
+    fun searchMovie(query: String): LiveData<MovieResult> {
+        val movie = MutableLiveData<MovieResult>()
+        val disposable =
+            movieService.searchMovie(API_KEY,query,"ko-KR")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(movie::postValue)
+        return movie
+    }
+
 }
