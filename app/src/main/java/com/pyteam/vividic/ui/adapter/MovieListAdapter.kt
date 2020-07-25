@@ -3,14 +3,11 @@ package com.pyteam.vividic.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.pyteam.vividic.databinding.ItemMovieBinding
 import com.pyteam.vividic.datasource.entity.movies.Results
-import com.pyteam.vividic.ui.MainFragmentDirections
 
 class MovieListAdapter(
     val onItemClickListener: OnItemClickListener

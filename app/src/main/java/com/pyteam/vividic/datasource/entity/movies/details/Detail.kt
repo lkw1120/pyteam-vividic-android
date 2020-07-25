@@ -1,7 +1,6 @@
 package com.pyteam.vividic.datasource.entity.movies.details
 
 import com.google.gson.annotations.SerializedName
-import com.pyteam.vividic.datasource.entity.movies.details.*
 
 data class Detail (
 

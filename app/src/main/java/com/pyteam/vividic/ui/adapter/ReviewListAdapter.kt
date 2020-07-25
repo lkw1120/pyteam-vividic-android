@@ -7,9 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.pyteam.vividic.databinding.ItemReviewBinding
-import com.pyteam.vividic.databinding.ItemTvShowBinding
 import com.pyteam.vividic.datasource.entity.common.reviews.Review
-import com.pyteam.vividic.datasource.entity.tvshows.Results
 
 class ReviewListAdapter(
     val onItemClickListener: OnItemClickListener

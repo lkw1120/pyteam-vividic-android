@@ -8,5 +8,4 @@ data class Review (
     @SerializedName("content") val content : String,
     @SerializedName("id") val id : String,
     @SerializedName("url") val url : String
-) {
-}
+)
