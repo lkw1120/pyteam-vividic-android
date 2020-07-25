@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 import com.pyteam.vividic.R
+import com.pyteam.vividic.datasource.entity.common.reviews.ReviewResult
 import com.pyteam.vividic.datasource.entity.movies.MovieResult
 import com.pyteam.vividic.datasource.entity.movies.credits.Credit
 import com.pyteam.vividic.datasource.entity.movies.details.Detail
@@ -37,6 +38,26 @@ class MovieRepository(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(credit::postValue)
         return credit
+    }
+
+    fun getReviews(movieId: String): LiveData<ReviewResult> {
+        val reviewResult = MutableLiveData<ReviewResult>()
+        val disposable =
+            movieService.getReviews(movieId, API_KEY, "en-US")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(reviewResult::postValue)
+        return reviewResult
+    }
+
+    fun getSimilar(movieId: String): LiveData<MovieResult> {
+        val movieResult = MutableLiveData<MovieResult>()
+        val disposable =
+            movieService.getSimilar(movieId, API_KEY, "ko-KR")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(movieResult::postValue)
+        return movieResult
     }
 
     fun getNowPlaying(): LiveData<MovieResult> {

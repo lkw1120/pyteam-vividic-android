@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">Vividic</string>
 
+    <string name="tmdb_web_url">https://www.themoviedb.org/</string>
     <string name="tmdb_api_url">https://api.themoviedb.org/3/</string>
     <string name="tmdb_image_url_original">https://image.tmdb.org/t/p/original</string>
+
+    <string name="reviews">Reviews</string>
 
     <string name="credit_cast">Cast</string>
     <string name="credit_crew">Crew</string>
@@ -17,5 +20,20 @@
     <string name="tv_show_results">TV Shows</string>
 
     <string name="search_tooltip">Search</string>
+
+    <string name="release_date">Release</string>
+    <string name="director">Director</string>
+    <string name="genre">Genre</string>
+    <string name="runtime">Runtime</string>
+    <string name="rating">Rate</string>
+    <string name="overview">Overview</string>
+
+    <string name="no_data_found">No data found</string>
+
+    <string name="similar_movie">Similar Movies</string>
+    <string name="similar_tv_show">Similar TV Shows</string>
+
+    <string name="detail_menu_share">Share</string>
+    <string name="detail_menu_favorite">Favorite</string>
 
 </resources>

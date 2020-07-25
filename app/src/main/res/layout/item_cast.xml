@@ -8,31 +8,40 @@
             type="com.pyteam.vividic.datasource.entity.common.Cast" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="@dimen/item_cast_width"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/item_cast_height"
+        app:cardElevation="@dimen/item_card_elevation"
+        app:cardCornerRadius="@dimen/item_card_corner_radius">
 
-        <ImageView
-            android:id="@+id/cast_profile"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/item_cast_height"
-            android:adjustViewBounds="true"
-            app:profilePath="@{item.profilePath}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/cast_name" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/cast_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{item.name}"
-            android:maxLines="2"
-            android:ellipsize="end"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cast_profile"
-            app:layout_constraintBottom_toBottomOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/cast_profile"
+                android:layout_width="@dimen/item_profile_poster_width"
+                android:layout_height="@dimen/item_profile_poster_height"
+                android:adjustViewBounds="true"
+                app:profilePath="@{item.profilePath}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/cast_name" />
+
+            <TextView
+                android:id="@+id/cast_name"
+                android:layout_width="@dimen/item_profile_name_width"
+                android:layout_height="@dimen/item_profile_name_height"
+                android:layout_marginHorizontal="@dimen/item_text_margin_width"
+                android:layout_marginVertical="@dimen/item_text_margin_height"
+                android:text="@{item.name}"
+                android:maxLines="2"
+                android:ellipsize="end"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cast_profile"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

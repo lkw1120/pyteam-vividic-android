@@ -68,6 +68,9 @@
         <action
             android:id="@+id/action_movie_details_fragement_to_person_details_fragment"
             app:destination="@id/person_details_fragment" />
+        <action
+            android:id="@+id/action_movie_details_fragement_self"
+            app:destination="@id/movie_details_fragement" />
 
     </fragment>
 
@@ -84,6 +87,9 @@
         <action
             android:id="@+id/action_tv_show_details_fragement_to_person_details_fragment"
             app:destination="@id/person_details_fragment" />
+        <action
+            android:id="@+id/action_tv_show_details_fragement_self"
+            app:destination="@id/tv_show_details_fragement" />
 
     </fragment>
 

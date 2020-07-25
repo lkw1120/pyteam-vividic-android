@@ -19,6 +19,7 @@ buildscript {
         retrofit2_version = '2.8.1'
         okhttp3_version = '4.4.1'
         glide_version = '4.11.0'
+        glide_transform_version = '4.1.0'
         junit_version = '4.13'
         runner_version = '1.2.0'
         espresso_version = '3.2.0'

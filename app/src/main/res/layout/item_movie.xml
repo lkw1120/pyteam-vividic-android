@@ -8,32 +8,41 @@
             type="com.pyteam.vividic.datasource.entity.movies.Results" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="@dimen/item_movie_width"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/item_movie_height"
+        app:cardElevation="@dimen/item_card_elevation"
+        app:cardCornerRadius="@dimen/item_card_corner_radius">
 
-        <ImageView
-            android:id="@+id/movie_poster"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/item_movie_height"
-            android:adjustViewBounds="true"
-            app:posterPath="@{item.posterPath}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/movie_title" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/movie_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{item.title}"
-            android:maxLines="2"
-            android:ellipsize="end"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/movie_poster"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            <ImageView
+                android:id="@+id/movie_poster"
+                android:layout_width="@dimen/item_poster_width"
+                android:layout_height="@dimen/item_poster_height"
+                android:adjustViewBounds="true"
+                app:posterPath="@{item.posterPath}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/movie_title" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/movie_title"
+                android:layout_width="@dimen/item_title_width"
+                android:layout_height="@dimen/item_title_height"
+                android:layout_marginHorizontal="@dimen/item_text_margin_width"
+                android:layout_marginVertical="@dimen/item_text_margin_height"
+                android:text="@{item.title}"
+                android:maxLines="2"
+                android:ellipsize="end"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/movie_poster"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

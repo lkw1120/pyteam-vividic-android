@@ -14,7 +14,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/list_header"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/list_header_width"
             android:layout_height="@dimen/list_header_height"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -24,11 +24,11 @@
             <TextView
                 android:id="@+id/list_title"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/list_header_title_height"
                 android:layout_marginStart="@dimen/item_margin_width"
                 android:gravity="center_vertical"
                 android:text="@{title}"
-                android:textSize="@dimen/list_title_text_size"
+                android:textSize="@dimen/list_header_title_text_size"
                 android:textColor="@color/colorPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -37,11 +37,11 @@
             <TextView
                 android:id="@+id/list_more"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/list_header_more_height"
                 android:layout_marginEnd="@dimen/item_margin_width"
                 android:gravity="center_vertical"
                 android:text="@string/more"
-                android:textSize="@dimen/list_more_text_size"
+                android:textSize="@dimen/list_header_more_text_size"
                 android:textColor="@color/colorTertiary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -51,8 +51,8 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_body"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/list_body_height"
+            android:layout_width="@dimen/list_body_width"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"

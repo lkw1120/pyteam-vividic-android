@@ -1,5 +1,6 @@
 package com.pyteam.vividic.datasource.remote
 
+import com.pyteam.vividic.datasource.entity.common.reviews.ReviewResult
 import com.pyteam.vividic.datasource.entity.movies.MovieResult
 import com.pyteam.vividic.datasource.entity.movies.credits.Credit
 import com.pyteam.vividic.datasource.entity.movies.details.Detail
@@ -27,6 +28,18 @@ interface MovieService {
         @Path("movie_id") movieId: String,
         @Query("api_key") apiKey: String,
         @Query("language") language: String) : Single<Credit>
+
+    @GET("movie/{movie_id}/reviews?")
+    fun getReviews(
+        @Path("movie_id") movieId: String,
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String) : Single<ReviewResult>
+
+    @GET("movie/{movie_id}/similar?")
+    fun getSimilar(
+        @Path("movie_id") movieId: String,
+        @Query("api_key") apiKey: String,
+        @Query("language") language: String) : Single<MovieResult>
 
     @GET("movie/now_playing?")
     fun getNowPlaying(
