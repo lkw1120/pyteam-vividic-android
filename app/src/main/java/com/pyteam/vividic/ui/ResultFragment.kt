@@ -85,10 +85,10 @@ class ResultFragment : Fragment() {
     ) {
         viewModel.apply {
             movieResult.observe(viewLifecycleOwner, Observer {
-                movieListAdapter.submitList(it.results)
+                movieListAdapter.submitList(it.movies)
             })
             tvShowResult.observe(viewLifecycleOwner, Observer {
-                tvShowListAdapter.submitList(it.results)
+                tvShowListAdapter.submitList(it.tvShows)
             })
         }
     }

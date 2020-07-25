@@ -123,16 +123,16 @@ class MainFragment : Fragment() {
     ) {
         viewModel.apply {
             moviesNowPlaying.observe(viewLifecycleOwner, Observer {
-                moviesNowPlayingAdapter.submitList(it.results)
+                moviesNowPlayingAdapter.submitList(it.movies)
             })
             moviesPopular.observe(viewLifecycleOwner, Observer {
-                moviesPopularAdapter.submitList(it.results)
+                moviesPopularAdapter.submitList(it.movies)
             })
             tvShowsOnTheAir.observe(viewLifecycleOwner, Observer {
-                tvShowOnTheAirAdapter.submitList(it.results)
+                tvShowOnTheAirAdapter.submitList(it.tvShows)
             })
             tvShowsPopular.observe(viewLifecycleOwner, Observer {
-                tvShowPopularAdapter.submitList(it.results)
+                tvShowPopularAdapter.submitList(it.tvShows)
             })
         }
     }

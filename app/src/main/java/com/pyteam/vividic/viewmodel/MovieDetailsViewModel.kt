@@ -2,7 +2,7 @@ package com.pyteam.vividic.viewmodel
 
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.pyteam.vividic.datasource.entity.movies.credits.Credit
+import com.pyteam.vividic.datasource.entity.common.credits.Credit
 import com.pyteam.vividic.datasource.entity.movies.details.Detail
 import com.pyteam.vividic.repository.MovieRepository
 
@@ -75,7 +75,7 @@ class MovieDetailsViewModel(
 
     private fun getDirector(credits: Credit): String {
         val list = mutableListOf<String>()
-        credits.crew.forEach {
+        credits.crews.forEach {
             if(it.job == "Director") {
                 list.add(it.name)
             }

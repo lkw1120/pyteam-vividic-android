@@ -1,8 +1,8 @@
 package com.pyteam.vividic.datasource.remote
 
-import com.pyteam.vividic.datasource.entity.common.reviews.ReviewResult
-import com.pyteam.vividic.datasource.entity.movies.MovieResult
-import com.pyteam.vividic.datasource.entity.movies.credits.Credit
+import com.pyteam.vividic.datasource.entity.common.credits.Credit
+import com.pyteam.vividic.datasource.entity.common.reviews.ReviewList
+import com.pyteam.vividic.datasource.entity.movies.MovieList
 import com.pyteam.vividic.datasource.entity.movies.details.Detail
 import io.reactivex.Single
 import retrofit2.http.GET
@@ -15,7 +15,7 @@ interface MovieService {
     fun searchMovie(
         @Query("api_key") apiKey: String,
         @Query("query") query: String,
-        @Query("language") language: String) : Single<MovieResult>
+        @Query("language") language: String) : Single<MovieList>
 
     @GET("movie/{movie_id}?")
     fun getDetails(
@@ -33,21 +33,21 @@ interface MovieService {
     fun getReviews(
         @Path("movie_id") movieId: String,
         @Query("api_key") apiKey: String,
-        @Query("language") language: String) : Single<ReviewResult>
+        @Query("language") language: String) : Single<ReviewList>
 
     @GET("movie/{movie_id}/similar?")
     fun getSimilar(
         @Path("movie_id") movieId: String,
         @Query("api_key") apiKey: String,
-        @Query("language") language: String) : Single<MovieResult>
+        @Query("language") language: String) : Single<MovieList>
 
     @GET("movie/now_playing?")
     fun getNowPlaying(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String) : Single<MovieResult>
+        @Query("language") language: String) : Single<MovieList>
 
     @GET("movie/popular?")
     fun getPopular(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String) : Single<MovieResult>
+        @Query("language") language: String) : Single<MovieList>
 }

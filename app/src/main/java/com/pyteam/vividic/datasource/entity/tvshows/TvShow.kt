@@ -2,7 +2,7 @@ package com.pyteam.vividic.datasource.entity.tvshows
 
 import com.google.gson.annotations.SerializedName
 
-data class Results (
+data class TvShow (
 
 	@SerializedName("original_name") val originalName : String,
 	@SerializedName("genre_ids") val genreIds : List<String>,

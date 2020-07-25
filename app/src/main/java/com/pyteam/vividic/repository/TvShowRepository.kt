@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 import com.pyteam.vividic.R
-import com.pyteam.vividic.datasource.entity.tvshows.TvShowResult
-import com.pyteam.vividic.datasource.entity.tvshows.credits.Credit
+import com.pyteam.vividic.datasource.entity.common.credits.Credit
+import com.pyteam.vividic.datasource.entity.tvshows.TvShowList
 import com.pyteam.vividic.datasource.entity.tvshows.details.Detail
 import com.pyteam.vividic.datasource.remote.TvShowService
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,13 +20,13 @@ class TvShowRepository(
     private val API_KEY: String = context.getString(R.string.tmdb_api_key)
 
     fun getDetails(tvId: String): LiveData<Detail> {
-        val movie = MutableLiveData<Detail>()
+        val detail = MutableLiveData<Detail>()
         val disposable =
             tvShowService.getDetails(tvId, API_KEY, "ko-KR")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(movie::postValue)
-        return movie
+                .subscribe(detail::postValue)
+        return detail
     }
 
     fun getCredits(tvId: String): LiveData<Credit> {
@@ -39,35 +39,34 @@ class TvShowRepository(
         return credit
     }
 
-    fun getOnTheAir(): LiveData<TvShowResult> {
-        val onTheAir = MutableLiveData<TvShowResult>()
+    fun getOnTheAir(): LiveData<TvShowList> {
+        val tvShowList = MutableLiveData<TvShowList>()
         val disposable =
             tvShowService.getOnTheAir(API_KEY,"ko-KR")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(onTheAir::postValue)
-        return onTheAir
+                .subscribe(tvShowList::postValue)
+        return tvShowList
     }
 
-    fun getPopular(): LiveData<TvShowResult> {
-        val popular = MutableLiveData<TvShowResult>()
+    fun getPopular(): LiveData<TvShowList> {
+        val tvShowList = MutableLiveData<TvShowList>()
         val disposable =
             tvShowService.getPopular(API_KEY, "ko-KR")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(popular::postValue)
-        return popular
+                .subscribe(tvShowList::postValue)
+        return tvShowList
     }
 
-    fun searchTvShow(query: String): LiveData<TvShowResult> {
-        val tvShow = MutableLiveData<TvShowResult>()
+    fun searchTvShow(query: String): LiveData<TvShowList> {
+        val tvShowList = MutableLiveData<TvShowList>()
         val disposable =
             tvShowService.searchTvShow(API_KEY,query,"ko-KR")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(tvShow::postValue)
-        return tvShow
+                .subscribe(tvShowList::postValue)
+        return tvShowList
     }
-
 
 }

@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.pyteam.vividic.databinding.ItemCastBinding
-import com.pyteam.vividic.datasource.entity.common.Cast
+import com.pyteam.vividic.datasource.entity.common.credits.Cast
 
 class CastListAdapter(
     val onItemClickListener: OnItemClickListener

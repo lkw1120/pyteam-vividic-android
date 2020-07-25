@@ -2,7 +2,7 @@ package com.pyteam.vividic.datasource.entity.movies
 
 import com.google.gson.annotations.SerializedName
 
-data class Results (
+data class Movie (
 
 	@SerializedName("popularity") val popularity : String,
 	@SerializedName("vote_count") val voteCount : String,

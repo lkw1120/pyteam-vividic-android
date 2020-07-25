@@ -122,31 +122,31 @@ class MovieDetailsFragment : Fragment() {
         reviewAdapter: ReviewListAdapter,
         similarAdapter: MovieListAdapter) {
         viewModel.credits.observe(viewLifecycleOwner, Observer {
-            if(it.cast.isNotEmpty()) {
+            if(it.casts.isNotEmpty()) {
                 binding.movieCast.root.visibility = View.VISIBLE
             }
             else {
                 binding.movieCast.root.visibility = View.GONE
             }
-            castAdapter.submitList(it.cast)
+            castAdapter.submitList(it.casts)
         })
         viewModel.reviews.observe(viewLifecycleOwner, Observer {
-            if(it.results.isNotEmpty()) {
+            if(it.reviews.isNotEmpty()) {
                 binding.movieReviews.root.visibility = View.VISIBLE
             }
             else {
                 binding.movieReviews.root.visibility = View.GONE
             }
-            reviewAdapter.submitList(it.results)
+            reviewAdapter.submitList(it.reviews)
         })
         viewModel.similar.observe(viewLifecycleOwner, Observer {
-            if(it.results.isNotEmpty()) {
+            if(it.movies.isNotEmpty()) {
                 binding.movieSimilar.root.visibility = View.VISIBLE
             }
             else {
                 binding.movieSimilar.root.visibility = View.GONE
             }
-            similarAdapter.submitList(it.results)
+            similarAdapter.submitList(it.movies)
         })
     }
 

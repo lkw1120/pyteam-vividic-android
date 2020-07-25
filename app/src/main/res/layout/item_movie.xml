@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="com.pyteam.vividic.datasource.entity.movies.Results" />
+            type="com.pyteam.vividic.datasource.entity.movies.Movie" />
     </data>
 
     <androidx.cardview.widget.CardView

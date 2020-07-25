@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.pyteam.vividic.databinding.ItemTvShowBinding
-import com.pyteam.vividic.datasource.entity.tvshows.Results
+import com.pyteam.vividic.datasource.entity.tvshows.TvShow
 
 class TvShowListAdapter(
     val onItemClickListener: OnItemClickListener
-): ListAdapter<Results, RecyclerView.ViewHolder>(DiffCallback()) {
+): ListAdapter<TvShow, RecyclerView.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         ItemViewHolder(ItemTvShowBinding.inflate(LayoutInflater.from(parent.context),parent,false))
@@ -28,7 +28,7 @@ class TvShowListAdapter(
                 onItemClickListener.onItemClick(it,binding.item!!.id)
             }
         }
-        fun bind(item: Results) {
+        fun bind(item: TvShow) {
             binding.apply {
                 this.item = item
                 executePendingBindings()
@@ -40,12 +40,12 @@ class TvShowListAdapter(
         fun onItemClick(view: View, id: String)
     }
 
-    class DiffCallback: DiffUtil.ItemCallback<Results>() {
+    class DiffCallback: DiffUtil.ItemCallback<TvShow>() {
 
-        override fun areContentsTheSame(oldItem: Results, newItem: Results): Boolean =
+        override fun areContentsTheSame(oldItem: TvShow, newItem: TvShow): Boolean =
             oldItem.id == newItem.id
 
-        override fun areItemsTheSame(oldItem: Results, newItem: Results): Boolean =
+        override fun areItemsTheSame(oldItem: TvShow, newItem: TvShow): Boolean =
             oldItem == newItem
     }
 }

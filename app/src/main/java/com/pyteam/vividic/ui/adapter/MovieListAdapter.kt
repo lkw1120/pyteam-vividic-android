@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.pyteam.vividic.databinding.ItemMovieBinding
-import com.pyteam.vividic.datasource.entity.movies.Results
+import com.pyteam.vividic.datasource.entity.movies.Movie
 
 class MovieListAdapter(
     val onItemClickListener: OnItemClickListener
-): ListAdapter<Results, RecyclerView.ViewHolder>(DiffCallback()) {
+): ListAdapter<Movie, RecyclerView.ViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         ItemViewHolder(ItemMovieBinding.inflate(LayoutInflater.from(parent.context),parent,false))
@@ -28,7 +28,7 @@ class MovieListAdapter(
                 onItemClickListener.onItemClick(it,binding.item!!.id)
             }
         }
-        fun bind(item: Results) {
+        fun bind(item: Movie) {
             binding.apply {
                 this.item = item
                 executePendingBindings()
@@ -40,12 +40,12 @@ class MovieListAdapter(
         fun onItemClick(view: View, id: String)
     }
 
-    class DiffCallback: DiffUtil.ItemCallback<Results>() {
+    class DiffCallback: DiffUtil.ItemCallback<Movie>() {
 
-        override fun areContentsTheSame(oldItem: Results, newItem: Results): Boolean =
+        override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean =
             oldItem.id == newItem.id
 
-        override fun areItemsTheSame(oldItem: Results, newItem: Results): Boolean =
+        override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean =
             oldItem == newItem
     }
 }

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="item"
-            type="com.pyteam.vividic.datasource.entity.common.Crew" />
+            type="com.pyteam.vividic.datasource.entity.common.credits.Crew" />
     </data>
 
     <androidx.cardview.widget.CardView

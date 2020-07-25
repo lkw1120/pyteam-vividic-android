@@ -83,8 +83,8 @@ class TvShowDetailsFragment : Fragment() {
     private fun subscribeUi(adapter: Any) {
         viewModel.credits.observe(viewLifecycleOwner, Observer {
             when(adapter) {
-                is CastListAdapter -> adapter.submitList(it.cast)
-                is CrewListAdapter -> adapter.submitList(it.crew)
+                is CastListAdapter -> adapter.submitList(it.casts)
+                is CrewListAdapter -> adapter.submitList(it.crews)
             }
         })
     }

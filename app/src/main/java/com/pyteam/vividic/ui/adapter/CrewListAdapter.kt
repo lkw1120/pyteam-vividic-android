@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.pyteam.vividic.databinding.ItemCrewBinding
-import com.pyteam.vividic.datasource.entity.common.Crew
+import com.pyteam.vividic.datasource.entity.common.credits.Crew
 
 class CrewListAdapter(
     val onItemClickListener:OnItemClickListener
