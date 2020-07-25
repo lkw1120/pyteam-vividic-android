@@ -38,13 +38,13 @@ class TvShowDetailsFragment : Fragment() {
             val castAdapter = CastListAdapter(object: CastListAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, id: String) {
                     findNavController().navigate(
-                        TvShowDetailsFragmentDirections.actionTvShowDetailsFragementToPersonDetailsFragment(id))
+                        TvShowDetailsFragmentDirections.actionTvShowDetailsFragmentToPersonDetailsFragment(id))
                 }
             })
             val crewAdapter = CrewListAdapter(object: CrewListAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, id: String) {
                     findNavController().navigate(
-                        TvShowDetailsFragmentDirections.actionTvShowDetailsFragementToPersonDetailsFragment(id))
+                        TvShowDetailsFragmentDirections.actionTvShowDetailsFragmentToPersonDetailsFragment(id))
                 }
             })
             tvShowCast.apply {

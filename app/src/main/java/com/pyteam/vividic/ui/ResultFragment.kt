@@ -45,14 +45,14 @@ class ResultFragment : Fragment() {
             val movieListAdapter = MovieListAdapter(object: MovieListAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, id: String) {
                     findNavController().navigate(
-                        ResultFragmentDirections.actionResultFragmentToMovieDetailsFragement(id)
+                        ResultFragmentDirections.actionResultFragmentToMovieDetailsFragment(id)
                     )
                 }
             })
             val tvShowListAdapter = TvShowListAdapter(object: TvShowListAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, id: String) {
                     findNavController().navigate(
-                        ResultFragmentDirections.actionResultFragmentToTvShowDetailsFragement(id)
+                        ResultFragmentDirections.actionResultFragmentToTvShowDetailsFragment(id)
                     )
                 }
             })

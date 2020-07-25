@@ -48,7 +48,7 @@ class MovieDetailsFragment : Fragment() {
             val castAdapter = CastListAdapter(object: CastListAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, id: String) {
                     findNavController().navigate(
-                        MovieDetailsFragmentDirections.actionMovieDetailsFragementToPersonDetailsFragment(id))
+                        MovieDetailsFragmentDirections.actionMovieDetailsFragmentToPersonDetailsFragment(id))
                 }
             })
             val reviewAdapter = ReviewListAdapter(object: ReviewListAdapter.OnItemClickListener {
@@ -62,7 +62,7 @@ class MovieDetailsFragment : Fragment() {
             val similarAdapter = MovieListAdapter(object: MovieListAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, id: String) {
                     findNavController().navigate(
-                        MovieDetailsFragmentDirections.actionMovieDetailsFragementSelf(id)
+                        MovieDetailsFragmentDirections.actionMovieDetailsFragmentSelf(id)
                     )
                 }
             })

@@ -36,7 +36,7 @@ class MainFragment : Fragment() {
                 MovieListAdapter(object : MovieListAdapter.OnItemClickListener {
                     override fun onItemClick(view: View, id: String) {
                         findNavController().navigate(
-                            MainFragmentDirections.actionMainFragmentToMovieDetailsFragement(id)
+                            MainFragmentDirections.actionMainFragmentToMovieDetailsFragment(id)
                         )
                     }
                 })
@@ -45,7 +45,7 @@ class MainFragment : Fragment() {
                 MovieListAdapter(object : MovieListAdapter.OnItemClickListener {
                     override fun onItemClick(view: View, id: String) {
                         findNavController().navigate(
-                            MainFragmentDirections.actionMainFragmentToMovieDetailsFragement(id)
+                            MainFragmentDirections.actionMainFragmentToMovieDetailsFragment(id)
                         )
                     }
                 })
@@ -54,7 +54,7 @@ class MainFragment : Fragment() {
                 TvShowListAdapter(object : TvShowListAdapter.OnItemClickListener {
                     override fun onItemClick(view: View, id: String) {
                         findNavController().navigate(
-                            MainFragmentDirections.actionMainFragmentToTvShowDetailsFragement(id)
+                            MainFragmentDirections.actionMainFragmentToTvShowDetailsFragment(id)
                         )
                     }
                 })
@@ -63,7 +63,7 @@ class MainFragment : Fragment() {
                 TvShowListAdapter(object : TvShowListAdapter.OnItemClickListener {
                     override fun onItemClick(view: View, id: String) {
                         findNavController().navigate(
-                            MainFragmentDirections.actionMainFragmentToTvShowDetailsFragement(id)
+                            MainFragmentDirections.actionMainFragmentToTvShowDetailsFragment(id)
                         )
                     }
                 })
