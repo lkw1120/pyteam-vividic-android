@@ -87,11 +87,34 @@
         <action
             android:id="@+id/action_tv_show_details_fragment_to_person_details_fragment"
             app:destination="@id/person_details_fragment" />
+
         <action
             android:id="@+id/action_tv_show_details_fragment_self"
             app:destination="@id/tv_show_details_fragment" />
+        <action
+            android:id="@+id/action_tv_show_details_fragment_to_tv_show_season_fragment"
+            app:destination="@id/tv_show_season_fragment" />
 
     </fragment>
+
+    <fragment
+        android:id="@+id/tv_show_season_fragment"
+        android:name="com.pyteam.vividic.ui.TvShowSeasonFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_tv_show_season">
+
+        <argument
+            android:name="tvId"
+            app:argType="string"
+            android:defaultValue="60735" />
+
+        <argument
+            android:name="seasonNumber"
+            app:argType="string"
+            android:defaultValue="1" />
+
+    </fragment>
+
 
     <fragment
         android:id="@+id/person_details_fragment"

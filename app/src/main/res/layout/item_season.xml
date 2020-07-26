@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.pyteam.vividic.datasource.entity.tvshows.details.Seasons" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/item_season_width"
+        android:layout_height="@dimen/item_season_height"
+        app:cardElevation="@dimen/item_card_elevation"
+        app:cardCornerRadius="@dimen/item_card_corner_radius">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/season_poster"
+                android:layout_width="@dimen/item_poster_width"
+                android:layout_height="@dimen/item_poster_height"
+                android:adjustViewBounds="true"
+                app:posterPath="@{item.posterPath}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/season_title" />
+
+            <TextView
+                android:id="@+id/season_title"
+                android:layout_width="@dimen/item_title_width"
+                android:layout_height="@dimen/item_title_height"
+                android:layout_marginHorizontal="@dimen/item_text_margin_width"
+                android:layout_marginVertical="@dimen/item_text_margin_height"
+                android:text="@{item.name}"
+                android:maxLines="2"
+                android:ellipsize="end"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/season_poster"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

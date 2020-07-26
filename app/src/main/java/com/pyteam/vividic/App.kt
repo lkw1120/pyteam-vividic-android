@@ -34,6 +34,9 @@ class App: Application() {
         viewModel { (tvId: String) ->
             TvShowDetailsViewModel(get(),tvId)
         }
+        viewModel { (tvId: String, seasonNumber: String) ->
+            TvShowSeasonViewModel(get(),tvId,seasonNumber)
+        }
         viewModel { (personId: String) ->
             PersonDetailsViewModel(get(),personId)
         }

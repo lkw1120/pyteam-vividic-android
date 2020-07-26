@@ -6,8 +6,11 @@ import androidx.lifecycle.MutableLiveData
 
 import com.pyteam.vividic.R
 import com.pyteam.vividic.datasource.entity.common.credits.Credit
+import com.pyteam.vividic.datasource.entity.common.reviews.ReviewList
+import com.pyteam.vividic.datasource.entity.movies.MovieList
 import com.pyteam.vividic.datasource.entity.tvshows.TvShowList
 import com.pyteam.vividic.datasource.entity.tvshows.details.Detail
+import com.pyteam.vividic.datasource.entity.tvshows.seasons.Season
 import com.pyteam.vividic.datasource.remote.TvShowService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -37,6 +40,36 @@ class TvShowRepository(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(credit::postValue)
         return credit
+    }
+
+    fun getReviews(tvId: String): LiveData<ReviewList> {
+        val reviewList = MutableLiveData<ReviewList>()
+        val disposable =
+            tvShowService.getReviews(tvId, API_KEY, "en-US")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(reviewList::postValue)
+        return reviewList
+    }
+
+    fun getSimilar(tvId: String): LiveData<TvShowList> {
+        val tvShowList = MutableLiveData<TvShowList>()
+        val disposable =
+            tvShowService.getSimilar(tvId, API_KEY, "ko-KR")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(tvShowList::postValue)
+        return tvShowList
+    }
+
+    fun getSeason(tvId: String, seasonNumber: String): LiveData<Season> {
+        val season = MutableLiveData<Season>()
+        val disposable =
+            tvShowService.getSeason(tvId, seasonNumber, API_KEY, "ko-KR")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(season::postValue)
+        return season
     }
 
     fun getOnTheAir(): LiveData<TvShowList> {

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.pyteam.vividic.datasource.entity.tvshows.seasons.Episodes" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_episode_height"
+        android:layout_marginHorizontal="@dimen/item_margin_width"
+        android:layout_marginVertical="@dimen/item_margin_height"
+        app:cardElevation="@dimen/item_card_elevation"
+        app:cardCornerRadius="@dimen/item_card_corner_radius">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/episode_still"
+                android:layout_width="@dimen/item_still_width"
+                android:layout_height="@dimen/item_still_height"
+                app:stillPath="@{item.still_path}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/episode_name"
+                android:layout_width="@dimen/item_episode_name_width"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/item_text_margin_width"
+                android:layout_marginVertical="@dimen/item_text_margin_height"
+                android:text="@{item.name}"
+                android:textSize="@dimen/item_episode_name_size"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintStart_toEndOf="@id/episode_still"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/episode_overview"/>
+            <TextView
+                android:id="@+id/episode_overview"
+                android:layout_width="@dimen/item_episode_overview_width"
+                android:layout_height="@dimen/item_episode_overview_height"
+                android:layout_marginHorizontal="@dimen/item_text_margin_width"
+                android:layout_marginVertical="@dimen/item_text_margin_height"
+                android:text="@{item.overview}"
+                android:maxLines="4"
+                android:ellipsize="end"
+                app:layout_constraintStart_toEndOf="@id/episode_still"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/episode_name"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

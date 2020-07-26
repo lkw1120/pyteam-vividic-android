@@ -19,7 +19,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_main_fragment_to_movie_details_fragement">
+                            <entry key="action_main_fragment_to_movie_details_fragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -29,7 +29,7 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_main_fragment_to_tv_show_details_fragement">
+                            <entry key="action_main_fragment_to_tv_show_details_fragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -39,23 +39,23 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="movie_details_fragement">
+                  <entry key="movie_details_fragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="15" />
-                            <option name="y" value="-277" />
+                            <option name="x" value="62" />
+                            <option name="y" value="-258" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_movie_details_fragement_self">
+                            <entry key="action_movie_details_fragment_self">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_movie_details_fragement_to_person_details_fragment">
+                            <entry key="action_movie_details_fragment_to_person_details_fragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -82,13 +82,13 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-91" />
-                            <option name="y" value="125" />
+                            <option name="x" value="-121" />
+                            <option name="y" value="223" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_result_fragment_to_movie_details_fragement">
+                            <entry key="action_result_fragment_to_movie_details_fragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -98,7 +98,7 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_result_fragment_to_tv_show_details_fragement">
+                            <entry key="action_result_fragment_to_tv_show_details_fragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -113,8 +113,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-364" />
-                            <option name="y" value="121" />
+                            <option name="x" value="-428" />
+                            <option name="y" value="151" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -129,28 +129,45 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="tv_show_details_fragement">
+                  <entry key="tv_show_details_fragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="56" />
-                            <option name="y" value="608" />
+                            <option name="x" value="84" />
+                            <option name="y" value="834" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_tv_show_details_fragement_self">
+                            <entry key="action_tv_show_details_fragment_self">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_tv_show_details_fragement_to_person_details_fragment">
+                            <entry key="action_tv_show_details_fragment_to_person_details_fragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_tv_show_details_fragment_to_tv_show_season_fragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="tv_show_season_fragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="530" />
+                            <option name="y" value="800" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

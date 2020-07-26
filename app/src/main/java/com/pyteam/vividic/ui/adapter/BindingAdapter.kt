@@ -27,6 +27,15 @@ fun bindingBackdrop(view: ImageView, url: String?) {
         .apply(RequestOptions.bitmapTransform(transform))
         .into(view)
 }
+@BindingAdapter("app:stillPath")
+fun bindingStill(view: ImageView, url: String?) {
+    Glide.with(view.context)
+        .load(view.context.getString(R.string.tmdb_image_url_original)+url)
+        .placeholder(R.drawable.ic_image_24px)
+        //.error(R.drawable.ic_person_24px)
+        .centerCrop()
+        .into(view)
+}
 @BindingAdapter("app:profilePath")
 fun bindingProfile(view: ImageView, url: String?) {
     Glide.with(view.context)
