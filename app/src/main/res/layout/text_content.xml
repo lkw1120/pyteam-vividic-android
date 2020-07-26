@@ -17,10 +17,10 @@
 
         <TextView
             android:id="@+id/detail_header"
-            android:layout_width="@dimen/detail_content_header_width"
+            android:layout_width="@dimen/content_header_width"
             android:layout_height="wrap_content"
             android:text="@{title}"
-            android:textSize="@dimen/detail_header_text_size"
+            android:textSize="@dimen/content_header_text_size"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +29,7 @@
 
         <TextView
             android:id="@+id/detail_body"
-            android:layout_width="@dimen/detail_content_body_width"
+            android:layout_width="@dimen/content_body_width"
             android:layout_height="wrap_content"
             android:text="@{content}"
             android:maxLines="1"

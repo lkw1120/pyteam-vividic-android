@@ -66,7 +66,7 @@ class TvShowDetailsViewModel(
     }
 
     private fun getRating(details: Detail): String {
-        return "${details.voteAverage} (${details.voteCount})"
+        return "${details.voteAverage}★ (${details.voteCount})"
     }
 
     private fun getGenres(details: Detail): String {

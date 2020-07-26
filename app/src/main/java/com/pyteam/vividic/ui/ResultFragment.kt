@@ -10,9 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.pyteam.vividic.R
 import com.pyteam.vividic.databinding.FragmentResultBinding
-import com.pyteam.vividic.ui.adapter.ListItemDecoration
-import com.pyteam.vividic.ui.adapter.MovieListAdapter
-import com.pyteam.vividic.ui.adapter.TvShowListAdapter
+import com.pyteam.vividic.ui.adapter.*
 import com.pyteam.vividic.viewmodel.ResultViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -58,18 +56,24 @@ class ResultFragment : Fragment() {
             })
             movieResult.listBody.apply {
                 addItemDecoration(
-                    ListItemDecoration(
+                    ItemDecorator(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                        resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                        LINEAR_LAYOUT_HORIZONTAL,
+                        0
                     )
                 )
                 adapter = movieListAdapter
             }
             tvShowResult.listBody.apply {
                 addItemDecoration(
-                    ListItemDecoration(
+                    ItemDecorator(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                        resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                        LINEAR_LAYOUT_HORIZONTAL,
+                        0
                     )
                 )
                 adapter = tvShowListAdapter

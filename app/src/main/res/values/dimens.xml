@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="list_header_width">0dp</dimen>
-    <dimen name="list_header_height">40dp</dimen>
-    <dimen name="list_body_width">0dp</dimen>
-    <dimen name="list_body_height">0dp</dimen>
+    <dimen name="content_width">0dp</dimen>
+    <dimen name="content_height">0dp</dimen>
 
-    <dimen name="list_header_title_width">0dp</dimen>
-    <dimen name="list_header_title_height">0dp</dimen>
-    <dimen name="list_header_more_width">0dp</dimen>
-    <dimen name="list_header_more_height">0dp</dimen>
+    <dimen name="content_margin_width">20dp</dimen>
+    <dimen name="content_margin_height">10dp</dimen>
 
-    <dimen name="list_header_title_text_size">18sp</dimen>
-    <dimen name="list_header_more_text_size">18sp</dimen>
+    <dimen name="content_header_width">0dp</dimen>
+    <dimen name="content_header_height">40dp</dimen>
+
+    <dimen name="content_header_text_size">18sp</dimen>
+
+    <dimen name="content_body_width">0dp</dimen>
+    <dimen name="content_body_height">0dp</dimen>
 
     <dimen name="item_margin_width">10dp</dimen>
     <dimen name="item_margin_height">5dp</dimen>
@@ -20,10 +21,25 @@
     <dimen name="item_text_margin_width">10dp</dimen>
     <dimen name="item_text_margin_height">5dp</dimen>
 
-    <dimen name="item_movie_width">140dp</dimen>
-    <dimen name="item_movie_height">260dp</dimen>
-    <dimen name="item_tv_show_width">140dp</dimen>
-    <dimen name="item_tv_show_height">260dp</dimen>
+
+    <dimen name="movie_detail_poster_height">400dp</dimen>
+    <dimen name="tv_show_detail_poster_height">400dp</dimen>
+
+    <dimen name="tv_show_season_episodes_width">0dp</dimen>
+    <dimen name="tv_show_season_episodes_height">0dp</dimen>
+
+
+    <dimen name="poster_width">100dp</dimen>
+    <dimen name="poster_height">150dp</dimen>
+
+    <dimen name="poster_margin_width">20dp</dimen>
+    <dimen name="poster_margin_height">10dp</dimen>
+
+
+    <dimen name="item_movie_width">100dp</dimen>
+    <dimen name="item_movie_height">200dp</dimen>
+    <dimen name="item_tv_show_width">100dp</dimen>
+    <dimen name="item_tv_show_height">200dp</dimen>
 
     <dimen name="item_poster_width">0dp</dimen>
     <dimen name="item_poster_height">0dp</dimen>
@@ -34,44 +50,18 @@
     <dimen name="item_still_width">120dp</dimen>
     <dimen name="item_still_height">0dp</dimen>
 
+    <dimen name="item_cast_width">100dp</dimen>
+    <dimen name="item_cast_height">160dp</dimen>
 
-    <dimen name="movie_detail_poster_height">400dp</dimen>
-    <dimen name="tv_show_detail_poster_height">400dp</dimen>
-
-    <dimen name="tv_show_season_episodes_width">0dp</dimen>
-    <dimen name="tv_show_season_episodes_height">0dp</dimen>
-
-    <dimen name="detail_poster_width">140dp</dimen>
-    <dimen name="detail_poster_height">210dp</dimen>
-    <dimen name="detail_poster_margin_width">20dp</dimen>
-    <dimen name="detail_poster_margin_height">20dp</dimen>
-
-    <dimen name="detail_content_width">0dp</dimen>
-    <dimen name="detail_content_height">0dp</dimen>
-
-    <dimen name="detail_content_margin_width">10dp</dimen>
-    <dimen name="detail_content_margin_height">10dp</dimen>
-
-    <dimen name="detail_content_header_width">0dp</dimen>
-    <dimen name="detail_content_header_height">0dp</dimen>
-
-    <dimen name="detail_content_body_width">0dp</dimen>
-    <dimen name="detail_content_body_height">0dp</dimen>
-
-    <dimen name="detail_header_text_size">16sp</dimen>
-
-
-    <dimen name="item_cast_width">140dp</dimen>
-    <dimen name="item_cast_height">230dp</dimen>
-    <dimen name="item_crew_width">140dp</dimen>
-    <dimen name="item_crew_height">230dp</dimen>
+    <dimen name="item_crew_width">100dp</dimen>
+    <dimen name="item_crew_height">160dp</dimen>
 
     <dimen name="item_profile_poster_width">0dp</dimen>
     <dimen name="item_profile_poster_height">0dp</dimen>
     <dimen name="item_profile_name_width">0dp</dimen>
     <dimen name="item_profile_name_height">40dp</dimen>
 
-    <dimen name="item_review_width">290dp</dimen>
+    <dimen name="item_review_width">320dp</dimen>
     <dimen name="item_review_height">240dp</dimen>
 
     <dimen name="item_review_author_size">16sp</dimen>
@@ -82,8 +72,8 @@
     <dimen name="item_review_content_width">0dp</dimen>
     <dimen name="item_review_content_height">0dp</dimen>
 
-    <dimen name="item_season_width">140dp</dimen>
-    <dimen name="item_season_height">260dp</dimen>
+    <dimen name="item_season_width">100dp</dimen>
+    <dimen name="item_season_height">200dp</dimen>
 
     <dimen name="item_episode_width">0dp</dimen>
     <dimen name="item_episode_height">120dp</dimen>

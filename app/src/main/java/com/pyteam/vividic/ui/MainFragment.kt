@@ -11,9 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.pyteam.vividic.R
 import com.pyteam.vividic.databinding.FragmentMainBinding
-import com.pyteam.vividic.ui.adapter.ListItemDecoration
-import com.pyteam.vividic.ui.adapter.MovieListAdapter
-import com.pyteam.vividic.ui.adapter.TvShowListAdapter
+import com.pyteam.vividic.ui.adapter.*
 import com.pyteam.vividic.viewmodel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -88,36 +86,48 @@ class MainFragment : Fragment() {
 
             moviesNowPlaying.listBody.apply {
                 addItemDecoration(
-                    ListItemDecoration(
+                    ItemDecorator(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                        resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                        LINEAR_LAYOUT_HORIZONTAL,
+                        0
                     )
                 )
                 adapter = moviesNowPlayingAdapter
             }
             moviesPopular.listBody.apply {
                 addItemDecoration(
-                    ListItemDecoration(
+                    ItemDecorator(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                        resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                        LINEAR_LAYOUT_HORIZONTAL,
+                        0
                     )
                 )
                 adapter = moviesPopularAdapter
             }
             tvShowsOnTheAir.listBody.apply {
                 addItemDecoration(
-                    ListItemDecoration(
+                    ItemDecorator(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                        resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                        LINEAR_LAYOUT_HORIZONTAL,
+                        0
                     )
                 )
                 adapter = tvShowOnTheAirAdapter
             }
             tvShowsPopular.listBody.apply {
                 addItemDecoration(
-                    ListItemDecoration(
+                    ItemDecorator(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                        resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                        resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                        LINEAR_LAYOUT_HORIZONTAL,
+                        0
                     )
                 )
                 adapter = tvShowPopularAdapter

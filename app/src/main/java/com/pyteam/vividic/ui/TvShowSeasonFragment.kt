@@ -8,8 +8,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import com.pyteam.vividic.R
 import com.pyteam.vividic.databinding.FragmentTvShowSeasonBinding
 import com.pyteam.vividic.ui.adapter.EpisodeListAdapter
+import com.pyteam.vividic.ui.adapter.ItemDecorator
+import com.pyteam.vividic.ui.adapter.LINEAR_LAYOUT_VERTICAL
 import com.pyteam.vividic.viewmodel.TvShowSeasonViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -39,6 +42,15 @@ class TvShowSeasonFragment : Fragment() {
             })
 
             seasonEpisodes.apply {
+                addItemDecoration(
+                    ItemDecorator(
+                        resources.getDimensionPixelSize(R.dimen.item_margin_width),
+                        resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                        resources.getDimensionPixelSize(R.dimen.content_margin_height),
+                        LINEAR_LAYOUT_VERTICAL,
+                        0
+                    )
+                )
                 adapter = episodesAdapter
             }
             subscribeUi(episodesAdapter)

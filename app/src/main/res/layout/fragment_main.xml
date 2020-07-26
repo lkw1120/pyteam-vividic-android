@@ -39,40 +39,52 @@
                     android:layout_height="wrap_content">
 
                     <include
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/movies_now_playing"
                         layout="@layout/list_content"
-                        app:title="@{@string/movies_now_playing}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/content_margin_height"
+                        app:layout_constraintBottom_toTopOf="@id/tv_shows_on_the_air"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toTopOf="@id/tv_shows_on_the_air"/>
+                        app:title="@{@string/movies_now_playing}" />
 
                     <include
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/tv_shows_on_the_air"
                         layout="@layout/list_content"
-                        app:title="@{@string/tv_shows_on_the_air}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/content_margin_height"
+                        app:layout_constraintBottom_toTopOf="@id/movies_popular"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/movies_now_playing"
-                        app:layout_constraintBottom_toTopOf="@id/movies_popular" />
+                        app:title="@{@string/tv_shows_on_the_air}" />
 
                     <include
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/movies_popular"
                         layout="@layout/list_content"
-                        app:title="@{@string/movies_popular}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/content_margin_height"
+                        app:layout_constraintBottom_toTopOf="@id/tv_shows_popular"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_shows_on_the_air"
-                        app:layout_constraintBottom_toTopOf="@id/tv_shows_popular" />
+                        app:title="@{@string/movies_popular}" />
 
                     <include
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/tv_shows_popular"
                         layout="@layout/list_content"
-                        app:title="@{@string/tv_shows_popular}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/content_margin_height"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/movies_popular"
-                        app:layout_constraintBottom_toBottomOf="parent" />
+                        app:title="@{@string/tv_shows_popular}" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.core.widget.NestedScrollView>

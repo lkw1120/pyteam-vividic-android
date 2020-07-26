@@ -5,18 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.pyteam.vividic.R
-
 import com.pyteam.vividic.databinding.FragmentMovieDetailsBinding
-import com.pyteam.vividic.ui.adapter.CastListAdapter
-import com.pyteam.vividic.ui.adapter.ListItemDecoration
-import com.pyteam.vividic.ui.adapter.MovieListAdapter
-import com.pyteam.vividic.ui.adapter.ReviewListAdapter
+import com.pyteam.vividic.ui.adapter.*
 import com.pyteam.vividic.viewmodel.MovieDetailsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -73,9 +69,12 @@ class MovieDetailsFragment : Fragment() {
                 }
                 listBody.apply {
                     addItemDecoration(
-                        ListItemDecoration(
+                        ItemDecorator(
                             resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                            resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                            resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                            LINEAR_LAYOUT_HORIZONTAL,
+                            0
                         )
                     )
                     adapter = castAdapter
@@ -87,9 +86,12 @@ class MovieDetailsFragment : Fragment() {
                 }
                 listBody.apply {
                     addItemDecoration(
-                        ListItemDecoration(
+                        ItemDecorator(
                             resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                            resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                            resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                            LINEAR_LAYOUT_HORIZONTAL,
+                            0
                         )
                     )
                     adapter = reviewAdapter
@@ -101,9 +103,12 @@ class MovieDetailsFragment : Fragment() {
                 }
                 listBody.apply {
                     addItemDecoration(
-                        ListItemDecoration(
+                        ItemDecorator(
                             resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                            resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                            resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                            LINEAR_LAYOUT_HORIZONTAL,
+                            0
                         )
                     )
                     adapter = similarAdapter

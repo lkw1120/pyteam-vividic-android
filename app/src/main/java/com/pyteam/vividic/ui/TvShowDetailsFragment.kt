@@ -77,9 +77,12 @@ class TvShowDetailsFragment : Fragment() {
                 }
                 listBody.apply {
                     addItemDecoration(
-                        ListItemDecoration(
+                        ItemDecorator(
                             resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                            resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                            resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                            LINEAR_LAYOUT_HORIZONTAL,
+                            0
                         )
                     )
                     adapter = castAdapter
@@ -91,9 +94,12 @@ class TvShowDetailsFragment : Fragment() {
                 }
                 listBody.apply {
                     addItemDecoration(
-                        ListItemDecoration(
+                        ItemDecorator(
                             resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                            resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                            resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                            LINEAR_LAYOUT_HORIZONTAL,
+                            0
                         )
                     )
                     adapter = reviewAdapter
@@ -105,9 +111,12 @@ class TvShowDetailsFragment : Fragment() {
                 }
                 listBody.apply {
                     addItemDecoration(
-                        ListItemDecoration(
+                        ItemDecorator(
                             resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                            resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                            resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                            LINEAR_LAYOUT_HORIZONTAL,
+                            0
                         )
                     )
                     adapter = seasonAdapter
@@ -119,9 +128,12 @@ class TvShowDetailsFragment : Fragment() {
                 }
                 listBody.apply {
                     addItemDecoration(
-                        ListItemDecoration(
+                        ItemDecorator(
                             resources.getDimensionPixelSize(R.dimen.item_margin_width),
-                            resources.getDimensionPixelSize(R.dimen.item_margin_height)
+                            resources.getDimensionPixelSize(R.dimen.item_margin_height),
+                            resources.getDimensionPixelSize(R.dimen.content_margin_width),
+                            LINEAR_LAYOUT_HORIZONTAL,
+                            0
                         )
                     )
                     adapter = similarAdapter
