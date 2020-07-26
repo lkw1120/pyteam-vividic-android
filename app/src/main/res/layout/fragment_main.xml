@@ -8,71 +8,84 @@
             name="model"
             type="com.pyteam.vividic.viewmodel.MainViewModel" />
     </data>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.MainFragment">
-
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
+        android:layout_height="match_parent">
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="?android:attr/actionBarSize">
+            android:layout_height="match_parent"
+            tools:context=".ui.MainFragment">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:titleTextColor="@android:color/white"/>
+                android:layout_height="?android:attr/actionBarSize">
 
-        </com.google.android.material.appbar.AppBarLayout>
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:titleTextColor="@android:color/white"/>
 
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <include
+                android:layout_height="wrap_content"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/movies_now_playing"
-                    layout="@layout/list_content"
-                    app:title="@{@string/movies_now_playing}"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/tv_shows_on_the_air"/>
+                    android:layout_height="wrap_content">
 
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_shows_on_the_air"
-                    layout="@layout/list_content"
-                    app:title="@{@string/tv_shows_on_the_air}"
-                    app:layout_constraintTop_toBottomOf="@id/movies_now_playing"
-                    app:layout_constraintBottom_toTopOf="@id/movies_popular" />
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/movies_now_playing"
+                        layout="@layout/list_content"
+                        app:title="@{@string/movies_now_playing}"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/tv_shows_on_the_air"/>
 
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/movies_popular"
-                    layout="@layout/list_content"
-                    app:title="@{@string/movies_popular}"
-                    app:layout_constraintTop_toBottomOf="@id/tv_shows_on_the_air"
-                    app:layout_constraintBottom_toTopOf="@id/tv_shows_popular" />
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_shows_on_the_air"
+                        layout="@layout/list_content"
+                        app:title="@{@string/tv_shows_on_the_air}"
+                        app:layout_constraintTop_toBottomOf="@id/movies_now_playing"
+                        app:layout_constraintBottom_toTopOf="@id/movies_popular" />
 
-                <include
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_shows_popular"
-                    layout="@layout/list_content"
-                    app:title="@{@string/tv_shows_popular}"
-                    app:layout_constraintTop_toBottomOf="@id/movies_popular"
-                    app:layout_constraintBottom_toBottomOf="parent" />
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/movies_popular"
+                        layout="@layout/list_content"
+                        app:title="@{@string/movies_popular}"
+                        app:layout_constraintTop_toBottomOf="@id/tv_shows_on_the_air"
+                        app:layout_constraintBottom_toTopOf="@id/tv_shows_popular" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
+                    <include
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tv_shows_popular"
+                        layout="@layout/list_content"
+                        app:title="@{@string/tv_shows_popular}"
+                        app:layout_constraintTop_toBottomOf="@id/movies_popular"
+                        app:layout_constraintBottom_toBottomOf="parent" />
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/main_navi_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/navi_menu"
+            app:headerLayout="@layout/navi_header"/>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

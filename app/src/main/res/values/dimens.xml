@@ -99,6 +99,9 @@
     <dimen name="item_card_elevation">3dp</dimen>
     <dimen name="item_card_corner_radius">3dp</dimen>
 
+    <dimen name="navi_header_width">0dp</dimen>
+    <dimen name="navi_header_height">210dp</dimen>
+
     <dimen name="footer_margin_height">50dp</dimen>
 
 </resources>

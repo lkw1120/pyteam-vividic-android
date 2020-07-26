@@ -42,4 +42,6 @@
     <string name="detail_menu_share">Share</string>
     <string name="detail_menu_favorite">Favorite</string>
 
+    <string name="navi_header_text">Navigation Header Area</string>
+
 </resources>
