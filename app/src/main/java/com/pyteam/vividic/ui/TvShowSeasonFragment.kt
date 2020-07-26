@@ -1,14 +1,13 @@
 package com.pyteam.vividic.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
-import com.pyteam.vividic.R
 import com.pyteam.vividic.databinding.FragmentTvShowSeasonBinding
 import com.pyteam.vividic.ui.adapter.EpisodeListAdapter
 import com.pyteam.vividic.viewmodel.TvShowSeasonViewModel
@@ -47,7 +46,7 @@ class TvShowSeasonFragment : Fragment() {
         return binding.root
     }
 
-    fun subscribeUi(episodesAdapter: EpisodeListAdapter) {
+    private fun subscribeUi(episodesAdapter: EpisodeListAdapter) {
         viewModel.season.observe(viewLifecycleOwner, Observer {
             episodesAdapter.submitList(it.episodes)
         })

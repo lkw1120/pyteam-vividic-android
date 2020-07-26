@@ -3,11 +3,9 @@ package com.pyteam.vividic.repository
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-
 import com.pyteam.vividic.R
 import com.pyteam.vividic.datasource.entity.common.credits.Credit
 import com.pyteam.vividic.datasource.entity.common.reviews.ReviewList
-import com.pyteam.vividic.datasource.entity.movies.MovieList
 import com.pyteam.vividic.datasource.entity.tvshows.TvShowList
 import com.pyteam.vividic.datasource.entity.tvshows.details.Detail
 import com.pyteam.vividic.datasource.entity.tvshows.seasons.Season

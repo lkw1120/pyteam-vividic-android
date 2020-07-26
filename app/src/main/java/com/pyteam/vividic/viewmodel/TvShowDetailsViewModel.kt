@@ -4,10 +4,8 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.pyteam.vividic.datasource.entity.common.credits.Credit
 import com.pyteam.vividic.datasource.entity.tvshows.details.Detail
-import com.pyteam.vividic.datasource.entity.tvshows.details.Networks
 import com.pyteam.vividic.datasource.entity.tvshows.details.Seasons
 import com.pyteam.vividic.repository.TvShowRepository
-import com.pyteam.vividic.ui.adapter.SeasonListAdapter
 
 class TvShowDetailsViewModel(
     tvShowRepository: TvShowRepository,

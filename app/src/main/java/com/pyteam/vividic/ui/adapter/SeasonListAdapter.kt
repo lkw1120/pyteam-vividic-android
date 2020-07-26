@@ -7,8 +7,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.pyteam.vividic.databinding.ItemSeasonBinding
-import com.pyteam.vividic.databinding.ItemTvShowBinding
-import com.pyteam.vividic.datasource.entity.tvshows.TvShow
 import com.pyteam.vividic.datasource.entity.tvshows.details.Seasons
 
 class SeasonListAdapter(

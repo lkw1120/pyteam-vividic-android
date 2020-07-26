@@ -1,9 +1,8 @@
 package com.pyteam.vividic.datasource.remote
 
-import com.pyteam.vividic.datasource.entity.tvshows.TvShowList
 import com.pyteam.vividic.datasource.entity.common.credits.Credit
 import com.pyteam.vividic.datasource.entity.common.reviews.ReviewList
-import com.pyteam.vividic.datasource.entity.movies.MovieList
+import com.pyteam.vividic.datasource.entity.tvshows.TvShowList
 import com.pyteam.vividic.datasource.entity.tvshows.details.Detail
 import com.pyteam.vividic.datasource.entity.tvshows.seasons.Season
 import io.reactivex.Single

@@ -2,8 +2,6 @@ package com.pyteam.vividic.ui
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.addCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
