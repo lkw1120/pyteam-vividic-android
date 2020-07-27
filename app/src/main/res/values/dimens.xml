@@ -8,9 +8,9 @@
     <dimen name="content_margin_height">10dp</dimen>
 
     <dimen name="content_header_width">0dp</dimen>
-    <dimen name="content_header_height">40dp</dimen>
+    <dimen name="content_header_height">50dp</dimen>
 
-    <dimen name="content_header_text_size">18sp</dimen>
+    <dimen name="content_header_text_size">21sp</dimen>
 
     <dimen name="content_body_width">0dp</dimen>
     <dimen name="content_body_height">0dp</dimen>

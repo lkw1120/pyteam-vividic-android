@@ -1,6 +1,7 @@
 package com.pyteam.vividic.ui
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
@@ -10,10 +11,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.AppBarLayout
 import com.pyteam.vividic.R
 
 import com.pyteam.vividic.databinding.FragmentTvShowDetailsBinding
 import com.pyteam.vividic.ui.adapter.*
+import com.pyteam.vividic.ui.listener.AppBarStateChangeListener
 import com.pyteam.vividic.viewmodel.TvShowDetailsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -39,8 +44,21 @@ class TvShowDetailsFragment : Fragment() {
             (activity as AppCompatActivity).apply {
                 setSupportActionBar(toolbar)
                 supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+                supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_arrow_back_24px)
                 setHasOptionsMenu(true)
             }
+            appBarLayout.addOnOffsetChangedListener(object: AppBarStateChangeListener() {
+                override fun onStateChanged(appBarLayout: AppBarLayout?, state: State?) {
+                    when(state?.name) {
+                        "EXPANDED", "IDLE" -> {
+                            toolbar.setTitleTextColor(Color.TRANSPARENT)
+                        }
+                        "COLLAPSED" -> {
+                            toolbar.setTitleTextColor(Color.WHITE)
+                        }
+                    }
+                }
+            })
 
             val castAdapter = CastListAdapter(object: CastListAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, id: String) {
@@ -85,6 +103,11 @@ class TvShowDetailsFragment : Fragment() {
                             0
                         )
                     )
+                    layoutManager = LinearLayoutManager(
+                        requireContext(),
+                        RecyclerView.HORIZONTAL,
+                        false
+                    )
                     adapter = castAdapter
                 }
             }
@@ -101,6 +124,11 @@ class TvShowDetailsFragment : Fragment() {
                             LINEAR_LAYOUT_HORIZONTAL,
                             0
                         )
+                    )
+                    layoutManager = LinearLayoutManager(
+                        requireContext(),
+                        RecyclerView.HORIZONTAL,
+                        false
                     )
                     adapter = reviewAdapter
                 }
@@ -119,6 +147,11 @@ class TvShowDetailsFragment : Fragment() {
                             0
                         )
                     )
+                    layoutManager = LinearLayoutManager(
+                        requireContext(),
+                        RecyclerView.HORIZONTAL,
+                        false
+                    )
                     adapter = seasonAdapter
                 }
             }
@@ -135,6 +168,11 @@ class TvShowDetailsFragment : Fragment() {
                             LINEAR_LAYOUT_HORIZONTAL,
                             0
                         )
+                    )
+                    layoutManager = LinearLayoutManager(
+                        requireContext(),
+                        RecyclerView.HORIZONTAL,
+                        false
                     )
                     adapter = similarAdapter
                 }

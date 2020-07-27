@@ -16,25 +16,29 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/detail_header"
+            android:id="@+id/text_header"
             android:layout_width="@dimen/content_header_width"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/content_header_height"
+            android:paddingHorizontal="@dimen/content_margin_width"
+            android:focusable="true"
+            android:clickable="true"
+            android:background="?android:selectableItemBackground"
+            android:gravity="center_vertical"
             android:text="@{title}"
             android:textSize="@dimen/content_header_text_size"
-            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/detail_body"/>
+            app:layout_constraintBottom_toTopOf="@id/text_body"/>
 
         <TextView
-            android:id="@+id/detail_body"
+            android:id="@+id/text_body"
             android:layout_width="@dimen/content_body_width"
             android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/content_margin_width"
             android:text="@{content}"
-            android:maxLines="1"
-            android:ellipsize="end"
-            app:layout_constraintTop_toBottomOf="@id/detail_header"
+            app:layout_constraintTop_toBottomOf="@id/text_header"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>

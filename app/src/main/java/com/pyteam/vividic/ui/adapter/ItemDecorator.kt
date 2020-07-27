@@ -2,6 +2,7 @@ package com.pyteam.vividic.ui.adapter
 
 import android.graphics.Rect
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 const val LINEAR_LAYOUT_VERTICAL = 0
@@ -29,51 +30,51 @@ class ItemDecorator(
                     when (position) {
                         firstPosition -> {
                             top = extraMargin
-                            bottom = height
+                            bottom = 0
                         }
                         lastPosition -> {
-                            top = 0
+                            top = height
                             bottom = extraMargin
                         }
                         else -> {
-                            top = 0
-                            bottom = height
+                            top = height
+                            bottom = 0
                         }
                     }
                     left = width
-                    right = height
+                    right = width
                 }
                 LINEAR_LAYOUT_HORIZONTAL -> {
                     when (position) {
                         firstPosition -> {
                             left = extraMargin
-                            right = width
+                            right = 0
                         }
                         lastPosition -> {
-                            left = 0
+                            left = width
                             right = extraMargin
                         }
                         else -> {
-                            left = 0
-                            right = width
+                            left = width
+                            right = 0
                         }
                     }
                     top = height
                     bottom = height
                 }
                 GRID_LAYOUT -> {
-                    when (position%spanCount) {
+                    when((view.layoutParams as GridLayoutManager.LayoutParams).spanIndex) {
                         0 -> {
                             left = extraMargin
-                            right = width
+                            right = 0
                         }
-                        spanCount - 1 -> {
+                        spanCount-1 -> {
                             left = 0
                             right = extraMargin
                         }
                         else -> {
-                            left = 0
-                            right = width
+                            left = width
+                            right = 0
                         }
                     }
                     top = height

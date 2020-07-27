@@ -5,9 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.pyteam.vividic.R
 import com.pyteam.vividic.databinding.FragmentTvShowSeasonBinding
 import com.pyteam.vividic.ui.adapter.EpisodeListAdapter
@@ -35,6 +38,13 @@ class TvShowSeasonFragment : Fragment() {
             model = viewModel
             lifecycleOwner = viewLifecycleOwner
 
+            (activity as AppCompatActivity).apply {
+                setSupportActionBar(toolbar)
+                supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+                supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_arrow_back_24px)
+                setHasOptionsMenu(true)
+            }
+
             val episodesAdapter = EpisodeListAdapter(object: EpisodeListAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, id: String) {
                     Toast.makeText(requireContext(),"에피소드 id : $id",Toast.LENGTH_LONG).show()
@@ -50,6 +60,11 @@ class TvShowSeasonFragment : Fragment() {
                         LINEAR_LAYOUT_VERTICAL,
                         0
                     )
+                )
+                layoutManager = LinearLayoutManager(
+                    requireContext(),
+                    RecyclerView.VERTICAL,
+                    false
                 )
                 adapter = episodesAdapter
             }

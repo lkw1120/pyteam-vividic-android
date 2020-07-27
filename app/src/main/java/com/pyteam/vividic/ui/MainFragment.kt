@@ -9,6 +9,8 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.pyteam.vividic.R
 import com.pyteam.vividic.databinding.FragmentMainBinding
 import com.pyteam.vividic.ui.adapter.*
@@ -94,6 +96,11 @@ class MainFragment : Fragment() {
                         0
                     )
                 )
+                layoutManager = LinearLayoutManager(
+                    requireContext(),
+                    RecyclerView.HORIZONTAL,
+                    false
+                )
                 adapter = moviesNowPlayingAdapter
             }
             moviesPopular.listBody.apply {
@@ -105,6 +112,11 @@ class MainFragment : Fragment() {
                         LINEAR_LAYOUT_HORIZONTAL,
                         0
                     )
+                )
+                layoutManager = LinearLayoutManager(
+                    requireContext(),
+                    RecyclerView.HORIZONTAL,
+                    false
                 )
                 adapter = moviesPopularAdapter
             }
@@ -118,6 +130,11 @@ class MainFragment : Fragment() {
                         0
                     )
                 )
+                layoutManager = LinearLayoutManager(
+                    requireContext(),
+                    RecyclerView.HORIZONTAL,
+                    false
+                )
                 adapter = tvShowOnTheAirAdapter
             }
             tvShowsPopular.listBody.apply {
@@ -129,6 +146,11 @@ class MainFragment : Fragment() {
                         LINEAR_LAYOUT_HORIZONTAL,
                         0
                     )
+                )
+                layoutManager = LinearLayoutManager(
+                    requireContext(),
+                    RecyclerView.HORIZONTAL,
+                    false
                 )
                 adapter = tvShowPopularAdapter
             }

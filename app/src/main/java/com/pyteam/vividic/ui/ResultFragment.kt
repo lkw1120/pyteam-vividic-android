@@ -1,16 +1,22 @@
 package com.pyteam.vividic.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
 import com.pyteam.vividic.R
 import com.pyteam.vividic.databinding.FragmentResultBinding
-import com.pyteam.vividic.ui.adapter.*
+import com.pyteam.vividic.ui.adapter.GRID_LAYOUT
+import com.pyteam.vividic.ui.adapter.ItemDecorator
+import com.pyteam.vividic.ui.adapter.MovieListAdapter
+import com.pyteam.vividic.ui.adapter.TvShowListAdapter
 import com.pyteam.vividic.viewmodel.ResultViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -33,12 +39,12 @@ class ResultFragment : Fragment() {
             model = viewModel
             lifecycleOwner = viewLifecycleOwner
 
-            toolbar.setOnClickListener {
-                findNavController().navigate(
-                    ResultFragmentDirections.actionResultFragmentToSearchFragment()
-                )
+            (activity as AppCompatActivity).apply {
+                setSupportActionBar(toolbar)
+                supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+                supportActionBar!!.setHomeAsUpIndicator(R.drawable.ic_arrow_back_24px)
+                setHasOptionsMenu(true)
             }
-
 
             val movieListAdapter = MovieListAdapter(object: MovieListAdapter.OnItemClickListener {
                 override fun onItemClick(view: View, id: String) {
@@ -55,15 +61,17 @@ class ResultFragment : Fragment() {
                 }
             })
             movieResult.listBody.apply {
+
                 addItemDecoration(
                     ItemDecorator(
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
                         resources.getDimensionPixelSize(R.dimen.item_margin_height),
                         resources.getDimensionPixelSize(R.dimen.content_margin_width),
-                        LINEAR_LAYOUT_HORIZONTAL,
-                        0
+                        GRID_LAYOUT,
+                        3
                     )
                 )
+                layoutManager = GridLayoutManager(requireContext(),3)
                 adapter = movieListAdapter
             }
             tvShowResult.listBody.apply {
@@ -72,10 +80,11 @@ class ResultFragment : Fragment() {
                         resources.getDimensionPixelSize(R.dimen.item_margin_width),
                         resources.getDimensionPixelSize(R.dimen.item_margin_height),
                         resources.getDimensionPixelSize(R.dimen.content_margin_width),
-                        LINEAR_LAYOUT_HORIZONTAL,
-                        0
+                        GRID_LAYOUT,
+                        3
                     )
                 )
+                layoutManager = GridLayoutManager(requireContext(),3)
                 adapter = tvShowListAdapter
             }
             subscribeUi(movieListAdapter,tvShowListAdapter)
@@ -94,6 +103,16 @@ class ResultFragment : Fragment() {
             tvShowResult.observe(viewLifecycleOwner, Observer {
                 tvShowListAdapter.submitList(it.tvShows)
             })
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when(item.itemId) {
+        android.R.id.home -> {
+            findNavController().popBackStack()
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
         }
     }
 }
