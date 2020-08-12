@@ -43,7 +43,7 @@
                 android:layout_height="@dimen/content_header_height"
                 android:layout_marginEnd="@dimen/content_margin_width"
                 android:src="@drawable/ic_arrow_forward_24px"
-                android:tint="@color/colorPrimary"
+                app:tint="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
