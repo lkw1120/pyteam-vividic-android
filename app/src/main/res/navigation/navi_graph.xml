@@ -126,7 +126,12 @@
             android:name="personId"
             app:argType="string"
             android:defaultValue="287" />
+        <action
+            android:id="@+id/action_person_details_fragment_to_movie_details_fragment"
+            app:destination="@id/movie_details_fragment" />
+        <action
+            android:id="@+id/action_person_details_fragment_to_tv_show_details_fragment"
+            app:destination="@id/tv_show_details_fragment" />
 
     </fragment>
-
 </navigation>
